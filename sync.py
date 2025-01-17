@@ -47,6 +47,7 @@ NEUTERED_GITATTRIBUTES: Final[str] = (
 )
 GH_ACT: Final[bool] = getenv("GITHUB_ACTIONS", "").lower() == "true"
 GH_TOKEN: Final[str] = getenv("SS_RESTEPPER_TOKEN", "")
+GH_USERNAME: Final[str] = "Sc0rch-thinks"
 if GH_ACT and GH_TOKEN == "":
     print(
         "critical error: no personal access token found in SS_RESTEP_TOKEN, "
@@ -624,7 +625,7 @@ def main() -> None:
         push_invocation = (
             f"git push {r['remote/github']} {branch} --force"
             if not GH_ACT
-            else f"git push https://markjoshwel:{GH_TOKEN}@{REPO_URL_GITHUB}.git {branch} --force"
+            else f"git push https://{GH_USERNAME}:{GH_TOKEN}@{REPO_URL_GITHUB}.git {branch} --force"
         )
 
         step(
