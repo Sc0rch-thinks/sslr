@@ -1,0 +1,39 @@
+name: "sync from forge.joshwel.co"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"  # every hour
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: AdityaGarg8/remove-unwanted-software@v4.1
+        with:
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
+          remove-large-packages: 'true'
+          remove-cached-tools: 'true'
+
+      - uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: clone forge.joshwel.co/Ryan/SSLR
+        run: |
+          mkdir -p ${{ runner.temp }}/SSLR
+          git clone https://forge.joshwel.co/Ryan/SSLR.git ${{ runner.temp }}/SSLR
+
+      - name: restep
+        env:
+          SS_RESTEPPER_TOKEN: ${{ secrets.PAT }}
+        run: |
+          cd ${{ runner.temp }}/SSLR
+          nix develop --command python sync.py
