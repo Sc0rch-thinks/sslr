@@ -1,13 +1,18 @@
-using Postgrest;
-using Postgrest.Attributes;
-using Postgrest.Models;
+
 using UnityEngine;
 using Supabase;
+using Supabase.Gotrue;
+using Client = Supabase.Client;
 
 public class Backend : MonoBehaviour
 {
     [SerializeField] private string url;
     [SerializeField] private string anonKey;
+    public Client Client;
+    public string email;
+    public string password;
+    public Session Session;
+    
 
     private async void Start()
     {
@@ -16,34 +21,63 @@ public class Backend : MonoBehaviour
             AutoConnectRealtime = true
         };
 
-        var client = new Supabase.Client(url, anonKey, options);
-        await client.InitializeAsync();
-        var test = new Test
+        Client = new Supabase.Client(url, anonKey, options);
+        await Client.InitializeAsync().ContinueWith(task =>
         {
-            Name = "John",
-            Score = 100
-        };
-        await client.From<Test>().Insert(test, new QueryOptions { Returning = QueryOptions.ReturnType.Representation })
-            .ContinueWith(task =>
+            if (!task.IsCompletedSuccessfully)
             {
-                if (task.IsCompletedSuccessfully)
-                {
-                    var result = task.Result;
-                    Debug.Log(result.Models[0].Name);
-                }
-                else
-                {
-                    Debug.LogError(task.Exception);
-                }
-                
-            });
+                Debug.LogError(task.Exception);
+            }
+            else
+            {
+                Debug.Log("Supabase Initialized");
+            }
+        });
+        SignUp(email, password, "Test");
     }
-}
 
-[Table("test")]
-public class Test : BaseModel
-{
-    [Column("name")] public string Name { get; set; }
+    public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelped, int customersHelpedWrongly)
+    {
+        var user= new Users
+        {
+            uid = uid,
+            score = score,
+            displayName = displayName,
+            daysPlayed = daysPlayed,
+            customersHelped = customersHelped,
+            customersHelpedWrongly = customersHelpedWrongly,
+        };
+        await Client.From<Users>().Insert(user).ContinueWith(SendTask =>
+        {
+            if (!SendTask.IsCompletedSuccessfully)
+            {
+                Debug.LogError(SendTask.Exception);
+            }
+            else
+            {
+                
+                Debug.Log("Data Sent Sucessfully");
+            }
+        });
+    }
 
-    [Column("score")] public int Score { get; set; }
+    public async void SignUp(string email, string password, string displayName)
+    {
+        Session = await Client.Auth.SignUp(email, password);
+        Debug.Log(Session.User.Id);
+        SendData(Session.User.Id, 0, displayName, 0, 0, 0);
+    }
+
+    public async void SignIn(string email, string password)
+    {
+        Session = await Client.Auth.SignIn(email, password);
+        Debug.Log(Session.User.Id);
+        
+    }
+
+    public async void GetData()
+    {
+        
+        
+    }
 }
