@@ -11,8 +11,6 @@ public class Test : BaseModel
 [Table("users")]
 public class Users : BaseModel
 {
-    
-
     [Column()] public string uid { get; set; }
     [Column()] public int score { get; set; }
     [Column()] public string displayName { get; set; }

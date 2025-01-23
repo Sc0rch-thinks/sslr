@@ -12,7 +12,7 @@ public class Backend : MonoBehaviour
     public string email;
     public string password;
     public Session Session;
-    
+    public Users user;
 
     private async void Start()
     {
@@ -33,7 +33,7 @@ public class Backend : MonoBehaviour
                 Debug.Log("Supabase Initialized");
             }
         });
-        SignUp(email, password, "Test");
+        SignIn(email, password);
     }
 
     public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelped, int customersHelpedWrongly)
@@ -72,12 +72,15 @@ public class Backend : MonoBehaviour
     {
         Session = await Client.Auth.SignIn(email, password);
         Debug.Log(Session.User.Id);
+        GetData(Session.User.Id);
         
     }
 
-    public async void GetData()
+    public async void GetData(string uid)
     {
-        
-        
+        var result = await Client.From<Users>().Where(x => x.uid == uid).Get();
+        user = result.Model;
     }
+    
+    
 }
