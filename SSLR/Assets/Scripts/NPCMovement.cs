@@ -11,16 +11,26 @@ using UnityEngine;
 
 public class NPCMovement : MonoBehaviour
 {
+    /// <summary>
+    /// References and Variables
+    /// </summary>
     public Transform[] walkPoints;
     public float movementSpeed = 10.0f;
     public float turnSpeed = 5.0f;
     private int currentPtIndex = 0;
     
+    /// <summary>
+    /// Start the coroutine
+    /// </summary>
     void Start()
     {
         StartCoroutine(Walking());
     }
 
+    /// <summary>
+    /// Coroutine for NPC to walk to each point
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Walking()
     {
         while (currentPtIndex < walkPoints.Length)
@@ -40,6 +50,7 @@ public class NPCMovement : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPt.position) < 0.1f)
             {
+                /*Debug.Log($"Reached {currentPtIndex}");*/
                 currentPtIndex++;
 
                 if (currentPtIndex >= walkPoints.Length)
