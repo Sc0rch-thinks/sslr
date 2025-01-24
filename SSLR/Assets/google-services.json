@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "813542519369",
+    "project_id": "sweet-starry-lil-rabbits",
+    "storage_bucket": "sweet-starry-lil-rabbits.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813542519369:android:a08c58c1ea90db2652c598",
+        "android_client_info": {
+          "package_name": "com.sweetstarrylilrabbits.solaceofservice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDa3ps6gHBaWhvqBXjMot5qcuDGNCDPls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
