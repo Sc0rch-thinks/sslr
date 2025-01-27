@@ -1,8 +1,9 @@
-
 using UnityEngine;
 using Supabase;
 using Supabase.Gotrue;
 using Client = Supabase.Client;
+using Firebase;
+using Firebase.Database;
 
 public class Backend : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Backend : MonoBehaviour
     public string email;
     public string password;
     public Session Session;
-    public Users user;
+    public Users User;
 
     private async void Start()
     {
@@ -20,6 +21,7 @@ public class Backend : MonoBehaviour
         {
             AutoConnectRealtime = true
         };
+        
 
         Client = new Supabase.Client(url, anonKey, options);
         await Client.InitializeAsync().ContinueWith(task =>
@@ -33,8 +35,7 @@ public class Backend : MonoBehaviour
                 Debug.Log("Supabase Initialized");
             }
         });
-        SignIn(email, password);
-    }
+FirebaseGet();    }
 
     public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelped, int customersHelpedWrongly)
     {
@@ -79,8 +80,22 @@ public class Backend : MonoBehaviour
     public async void GetData(string uid)
     {
         var result = await Client.From<Users>().Where(x => x.uid == uid).Get();
-        user = result.Model;
+        User = result.Model;
     }
-    
-    
+
+    public async void FirebaseGet()
+    {
+        FirebaseDatabase.DefaultInstance.RootReference.Child("stories").GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError(task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                Debug.Log(snapshot.GetRawJsonValue());
+            }
+        });
+    }
 }
