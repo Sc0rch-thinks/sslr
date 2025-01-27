@@ -14,12 +14,15 @@ public class NPCMovement : MonoBehaviour
     /// <summary>
     /// References and Variables
     /// </summary>
-    public Transform[] walkPoints1;
-    public Transform[] walkPoints2;
-    public Transform[] walkPoints3;
+    public Transform[] frontWalkPoints;
+    public Transform[] leftWalkPoints;
+    public Transform[] rightWalkPoints;
     public float movementSpeed = 10.0f;
     public float turnSpeed = 5.0f;
     private int currentPtIndex = 0;
+
+    [SerializeField] private GameObject leftWalkPointSet;
+    [SerializeField] private GameObject rightWalkPointSet;
     
     /// <summary>
     /// Start the coroutine
@@ -34,11 +37,13 @@ public class NPCMovement : MonoBehaviour
     /// </summary>
     public void WalkToPlayerLeft()
     {
+        leftWalkPointSet.SetActive(true);
         StartCoroutine(WalkingToPlayerLeft());
     }
     
     public void WalkToPlayerRight()
     {
+        rightWalkPointSet.SetActive(true);
         StartCoroutine(WalkingToPlayerRight());
     }
 
@@ -48,14 +53,14 @@ public class NPCMovement : MonoBehaviour
     /// <returns></returns>
     IEnumerator WalkingToPlayer()
     {
-        while (currentPtIndex < walkPoints1.Length)
+        while (currentPtIndex < frontWalkPoints.Length)
         {
-            if (walkPoints1.Length == 0)
+            if (frontWalkPoints.Length == 0)
             {
                 yield break;
             }
             
-            Transform targetPt = walkPoints1[currentPtIndex];
+            Transform targetPt = frontWalkPoints[currentPtIndex];
             
             Vector3 direction = targetPt.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
@@ -68,9 +73,10 @@ public class NPCMovement : MonoBehaviour
                 /*Debug.Log($"Reached {currentPtIndex}");*/
                 currentPtIndex++;
 
-                if (currentPtIndex >= walkPoints1.Length)
+                if (currentPtIndex >= frontWalkPoints.Length)
                 {
                     StopAllCoroutines();
+                    currentPtIndex = 0;
                     yield break;
                 }
             }
@@ -85,14 +91,14 @@ public class NPCMovement : MonoBehaviour
     /// <returns></returns>
     IEnumerator WalkingToPlayerLeft()
     {
-        while (currentPtIndex < walkPoints2.Length)
+        while (currentPtIndex < leftWalkPoints.Length)
         {
-            if (walkPoints2.Length == 0)
+            if (leftWalkPoints.Length == 0)
             {
                 yield break;
             }
             
-            Transform targetPt = walkPoints2[currentPtIndex];
+            Transform targetPt = leftWalkPoints[currentPtIndex];
             
             Vector3 direction = targetPt.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
@@ -105,9 +111,10 @@ public class NPCMovement : MonoBehaviour
                 /*Debug.Log($"Reached {currentPtIndex}");*/
                 currentPtIndex++;
 
-                if (currentPtIndex >= walkPoints2.Length)
+                if (currentPtIndex >= leftWalkPoints.Length)
                 {
                     StopAllCoroutines();
+                    currentPtIndex = 0;
                     yield break;
                 }
             }
@@ -122,14 +129,14 @@ public class NPCMovement : MonoBehaviour
     /// <returns></returns>
     IEnumerator WalkingToPlayerRight()
     {
-        while (currentPtIndex < walkPoints3.Length)
+        while (currentPtIndex < rightWalkPoints.Length)
         {
-            if (walkPoints3.Length == 0)
+            if (rightWalkPoints.Length == 0)
             {
                 yield break;
             }
             
-            Transform targetPt = walkPoints3[currentPtIndex];
+            Transform targetPt = rightWalkPoints[currentPtIndex];
             
             Vector3 direction = targetPt.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
@@ -142,9 +149,10 @@ public class NPCMovement : MonoBehaviour
                 /*Debug.Log($"Reached {currentPtIndex}");*/
                 currentPtIndex++;
 
-                if (currentPtIndex >= walkPoints3.Length)
+                if (currentPtIndex >= rightWalkPoints.Length)
                 {
                     StopAllCoroutines();
+                    currentPtIndex = 0;
                     yield break;
                 }
             }
