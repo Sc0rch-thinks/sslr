@@ -689,6 +689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 520849215}
   - component: {fileID: 520849216}
+  - component: {fileID: 520849217}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -724,6 +725,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayEnded: 0
+--- !u!114 &520849217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520849214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6fa011a2b389049b558ccdf6b38c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcObject: {fileID: 624452548}
 --- !u!1 &624452548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,9 +2337,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 624452553}
-        m_TargetAssemblyTypeName: NPCMovement, Assembly-CSharp
-        m_MethodName: WalkToPlayerRight
+      - m_Target: {fileID: 520849217}
+        m_TargetAssemblyTypeName: DeskButtons, Assembly-CSharp
+        m_MethodName: DirectToRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2371,7 +2385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115f1a2a50d85cd4b9d6dad4c95622be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Interactable: {fileID: 0}
+  m_Interactable: {fileID: 1627151199}
   m_PokeCollider: {fileID: 1627151201}
   m_PokeConfiguration:
     m_UseConstant: 1
@@ -2700,9 +2714,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 624452553}
-        m_TargetAssemblyTypeName: NPCMovement, Assembly-CSharp
-        m_MethodName: WalkToPlayerLeft
+      - m_Target: {fileID: 520849217}
+        m_TargetAssemblyTypeName: DeskButtons, Assembly-CSharp
+        m_MethodName: DirectToLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2748,7 +2762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115f1a2a50d85cd4b9d6dad4c95622be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Interactable: {fileID: 0}
+  m_Interactable: {fileID: 2043314903}
   m_PokeCollider: {fileID: 2043314905}
   m_PokeConfiguration:
     m_UseConstant: 1

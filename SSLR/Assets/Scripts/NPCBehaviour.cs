@@ -16,7 +16,7 @@ public class NPCBehaviour : MonoBehaviour
     private NPCMovement npcMoveScript;
     [SerializeField] private GameObject paperObject;
     [SerializeField] private GameObject navigationTxtBubble; 
-    [SerializeField] TextMeshProUGUI navigationTxt;
+    [SerializeField] public TextMeshProUGUI navigationTxt;
 
     private string[] possibleSentences =
     {
