@@ -23,9 +23,9 @@ public class NPCMovement : MonoBehaviour
 
     [SerializeField] private GameObject leftWalkPointSet;
     [SerializeField] private GameObject rightWalkPointSet;
-    
-    public GameObject paperObject;
-    
+
+    public bool inFrontOfPlayer = false;
+   
     /// <summary>
     /// Start the coroutine
     /// </summary>
@@ -79,7 +79,7 @@ public class NPCMovement : MonoBehaviour
                 {
                     StopAllCoroutines();
                     currentPtIndex = 0;
-                    paperObject.SetActive(true);
+                    inFrontOfPlayer = true;
                     yield break;
                 }
             }
