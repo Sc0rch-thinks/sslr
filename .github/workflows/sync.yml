@@ -36,4 +36,4 @@ jobs:
           SS_RESTEPPER_TOKEN: ${{ secrets.PAT }}
         run: |
           cd ${{ runner.temp }}/SSLR
-          nix develop --command python sync.py
+          nix develop --command python restepper.py
