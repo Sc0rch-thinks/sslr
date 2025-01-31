@@ -41,7 +41,7 @@ public class NPCBehaviour : MonoBehaviour
     {
         if (npcMoveScript.inFrontOfPlayer == true)
         {
-            //paperObject.SetActive(true);
+            paperObject.SetActive(true);
             navigationTxtBubble.SetActive(true);
         }
     }
