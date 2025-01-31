@@ -818,6 +818,7 @@ GameObject:
   - component: {fileID: 520849215}
   - component: {fileID: 520849216}
   - component: {fileID: 520849217}
+  - component: {fileID: 520849218}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -866,6 +867,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcObject: {fileID: 624452548}
+--- !u!114 &520849218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520849214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453d520beb5656b4b8f3e696d9a97205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &624452548
 GameObject:
   m_ObjectHideFlags: 0

@@ -63,11 +63,15 @@ public class DeskButtons : MonoBehaviour
     {
         if (correctDirection == directionSent)
         {
+            Player.score += 1;
             Debug.Log("correct");
+            Debug.Log(Player.score);
         }
         else
         {
+            Player.score -= 1;
             Debug.Log("incorrect");
+            Debug.Log(Player.score);
         }
     }
 }
