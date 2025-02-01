@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     void CheckDayEnd()
     {
-        if (score <= 0)
+        if (score < 0)
         {
             Debug.Log("Game Over, Day has ended");
             gm.dayEnded = true;

@@ -18,6 +18,8 @@ public class NPCBehaviour : MonoBehaviour
     [SerializeField] private GameObject navigationTxtBubble; 
     [SerializeField] public TextMeshProUGUI navigationTxt;
 
+    public static bool paperProduced;
+    
     private string[] possibleSentences =
     {
         "I want to go left!",
@@ -31,6 +33,8 @@ public class NPCBehaviour : MonoBehaviour
         paperObject.SetActive(false);
         navigationTxtBubble.SetActive(false);
         
+        paperProduced = false;
+        
         if (navigationTxt != null)
         {
             navigationTxt.text = GetRandomSentence();
@@ -43,6 +47,8 @@ public class NPCBehaviour : MonoBehaviour
         {
             paperObject.SetActive(true);
             navigationTxtBubble.SetActive(true);
+            
+            paperProduced = true;
         }
     }
 
