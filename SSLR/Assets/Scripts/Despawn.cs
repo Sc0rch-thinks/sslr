@@ -12,19 +12,18 @@ using UnityEngine;
 
 public class Despawn : MonoBehaviour
 {
+    private Player playerScript;
+    
     /// <summary>
     /// Destroy NPC object on trigger enter
     /// </summary>
     /// <param name="other"></param>
     public void OnTriggerEnter(Collider other)
     {
-        /*Debug.Log(other.name);*/
-        
         if (other.CompareTag("NPC"))
         {
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
-            /*Debug.Log("NPC left");*/
         }
     }
 

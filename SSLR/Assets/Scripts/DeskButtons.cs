@@ -13,6 +13,7 @@ public class DeskButtons : MonoBehaviour
 {
     NPCMovement npcMoveScript;
     NPCBehaviour npcBehaviourScript;
+    private Player playerScript;
     
     [SerializeField] private GameObject npcObject;
 
@@ -23,6 +24,7 @@ public class DeskButtons : MonoBehaviour
     {
         npcMoveScript = npcObject.GetComponent<NPCMovement>();
         npcBehaviourScript = npcObject.GetComponent<NPCBehaviour>();
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     public void DirectToLeft()
@@ -57,6 +59,7 @@ public class DeskButtons : MonoBehaviour
         }
         
         CheckCorrectDirection();
+        
     }
 
     void CheckCorrectDirection()
@@ -64,14 +67,20 @@ public class DeskButtons : MonoBehaviour
         if (correctDirection == directionSent)
         {
             Player.score += 1;
+            Player.customersServed += 1;
             Debug.Log("correct");
             Debug.Log(Player.score);
+            Debug.Log(Player.customersServed);
         }
         else
         {
             Player.score -= 1;
+            Player.customersServed += 1;
             Debug.Log("incorrect");
             Debug.Log(Player.score);
+            Debug.Log(Player.customersServed);
+            
+            playerScript.CheckDayEnd();
         }
     }
 }
