@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     public bool dayEnded = false;
+    
+    [SerializeField]
+    public bool shiftStarted;
 
     /// <summary>
     /// Do Not Destroy on Load

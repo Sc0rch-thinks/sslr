@@ -11,16 +11,18 @@ using UnityEngine;
 
 public class ShiftManager : MonoBehaviour
 {
-    private bool shiftStarted;
     [SerializeField]
     private float shiftDuration;
     private float remainingTime;
 
     private Collider shiftTrigger;
+    private GameManager gm;
 
     void Awake()
     {
-        shiftStarted = false;
+        gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        
+        gm.shiftStarted = false;
         remainingTime = shiftDuration;
         
         shiftTrigger = GetComponent<Collider>();
@@ -28,11 +30,11 @@ public class ShiftManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && !shiftStarted)
+        if (other.tag == "Player" && !gm.shiftStarted)
         {
             Debug.Log("Shift started");
             
-            shiftStarted = true;
+            gm.shiftStarted = true;
             shiftTrigger.enabled = false;
             StartCoroutine(StartWorkShift());
         }
@@ -43,8 +45,13 @@ public class ShiftManager : MonoBehaviour
         while (remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
-            
             Debug.Log("Shift: " + remainingTime);
+
+            if (Player.score < 0)
+            {
+                Debug.Log("Too many mistakes! Shift ended!");
+                break;
+            }
             yield return null;
         }
         
@@ -55,10 +62,7 @@ public class ShiftManager : MonoBehaviour
     {
         Debug.Log("Shift ended!");
         
-        /*
-        shiftTrigger.enabled = true;
-        */
         remainingTime = shiftDuration;
-        shiftStarted = false;
+        gm.shiftStarted = false;
     }
 }

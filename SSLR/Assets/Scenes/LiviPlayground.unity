@@ -918,6 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayEnded: 0
+  shiftStarted: 0
 --- !u!114 &520849217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bab791ccf13189449b82b8f0b70b269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiftDuration: 5
+  shiftDuration: 20
 --- !u!1 &756192406
 GameObject:
   m_ObjectHideFlags: 0

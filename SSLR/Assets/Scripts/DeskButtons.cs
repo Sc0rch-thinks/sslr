@@ -79,8 +79,6 @@ public class DeskButtons : MonoBehaviour
             Debug.Log("incorrect");
             Debug.Log(Player.score);
             Debug.Log(Player.customersServed);
-            
-            playerScript.CheckDayEnd();
         }
     }
 }
