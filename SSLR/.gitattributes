@@ -131,5 +131,4 @@ Assets/Plugins/**       linguist-vendored
 *.DAT                   filter=lfs diff=lfs merge=lfs -text
 
 # worldcreator terrain asset files
-Assets/WorldCreatorTerrains/*.asset -text
-*.terrain.asset binary
+Assets/WorldCreatorTerrains/WC_TerrainWC_Terrain_0_0.asset -binary
