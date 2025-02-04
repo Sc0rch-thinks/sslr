@@ -39,21 +39,7 @@ public class Door : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            if (!doorOpened)
-            {
-                if (!gm.dayEnded)
-                {
-                    Debug.Log("Day hasn't ended!");
-                }
-                else
-                {
-                    OpenDoor();
-                }
-            }
-        }
-        else if (other.CompareTag("NPC") && !doorOpened)
+        if (!doorOpened && (other.CompareTag("Player") || other.CompareTag("NPC")))
         {
             OpenDoor();
         }

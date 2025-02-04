@@ -556,19 +556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1f54676195faf4ba8ba4d5e99b916f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontWalkPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  leftWalkPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  rightWalkPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  movementSpeed: 5
+  movementSpeed: 7
   turnSpeed: 5
-  leftWalkPointSet: {fileID: 0}
-  rightWalkPointSet: {fileID: 0}
   inFrontOfPlayer: 0
 --- !u!65 &6249434732724022439
 BoxCollider:

@@ -19,10 +19,12 @@ public class ShiftManager : MonoBehaviour
 
     private Collider shiftTrigger;
     private GameManager gm;
+    private DayManager dayManager;
 
     void Awake()
     {
         gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        dayManager = GameObject.Find("Day Manager").GetComponent<DayManager>();
         
         gm.shiftStarted = false;
         remainingTime = shiftDuration;
@@ -32,7 +34,7 @@ public class ShiftManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && !gm.shiftStarted)
+        if (other.CompareTag("Player") && !gm.shiftStarted)
         {
             Debug.Log("Shift started");
             
@@ -48,7 +50,6 @@ public class ShiftManager : MonoBehaviour
         while (remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
-            /*Debug.Log("Shift: " + remainingTime);*/
 
             if (Player.score < 0)
             {
@@ -68,5 +69,11 @@ public class ShiftManager : MonoBehaviour
         npcSpawnArea.SetActive(false);
         remainingTime = shiftDuration;
         gm.shiftStarted = false;
+        dayManager.doneAShift = true;
+    }
+
+    public void AllowShiftStart()
+    {
+        shiftTrigger.enabled = true;
     }
 }

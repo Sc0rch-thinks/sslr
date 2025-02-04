@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5453e60feb81353409a4c7dea809cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcBufferTime: 5
+  npcBufferTime: 2
   npcSpawned: 0
   npc: {fileID: 6618770541138752799, guid: 3dcfbdcf77a53b14bb7c0c3140072ea7, type: 3}
 --- !u!1 &1227598780
@@ -2085,6 +2085,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketName: Paper Socket
+--- !u!1 &1979701312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979701315}
+  - component: {fileID: 1979701314}
+  - component: {fileID: 1979701313}
+  m_Layer: 0
+  m_Name: Day Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1979701313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979701312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d971d51c8e156241a4499e252f667ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doneAShift: 0
+  shiftManager: {fileID: 732601457}
+--- !u!65 &1979701314
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979701312}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3254375, y: 2.1451125, z: 1.221778}
+  m_Center: {x: -0.0010703206, y: 0.57255626, z: -0.11088902}
+--- !u!4 &1979701315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979701312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.008, y: 0.513, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2027209538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,4 +2567,5 @@ SceneRoots:
   - {fileID: 2043314906}
   - {fileID: 1627151202}
   - {fileID: 732601459}
+  - {fileID: 1979701315}
   - {fileID: 1126609777}
