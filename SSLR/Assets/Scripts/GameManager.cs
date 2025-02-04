@@ -24,6 +24,14 @@ public class GameManager : MonoBehaviour
     
     [SerializeField]
     public bool shiftStarted;
+    
+    [Header("Walk Points (FOR DEBUGGING")]
+    public Transform[] frontWalkPoints;
+    public Transform[] leftWalkPoints;
+    public Transform[] rightWalkPoints;
+    
+    public GameObject leftWalkPointSet;
+    public GameObject rightWalkPointSet;
 
     /// <summary>
     /// Do Not Destroy on Load
@@ -39,5 +47,5 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }   
 }

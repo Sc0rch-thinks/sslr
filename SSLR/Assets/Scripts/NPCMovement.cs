@@ -14,17 +14,19 @@ public class NPCMovement : MonoBehaviour
     /// <summary>
     /// References and Variables
     /// </summary>
-    public Transform[] frontWalkPoints;
+    /*public Transform[] frontWalkPoints;
     public Transform[] leftWalkPoints;
-    public Transform[] rightWalkPoints;
+    public Transform[] rightWalkPoints;*/
     public float movementSpeed = 10.0f;
     public float turnSpeed = 5.0f;
     private int currentPtIndex = 0;
 
-    [SerializeField] private GameObject leftWalkPointSet;
-    [SerializeField] private GameObject rightWalkPointSet;
+    /*[SerializeField] private GameObject leftWalkPointSet;
+    [SerializeField] private GameObject rightWalkPointSet;*/
 
     public bool inFrontOfPlayer = false;
+
+    private GameManager gm;
    
     /// <summary>
     /// Start the coroutine
@@ -39,13 +41,13 @@ public class NPCMovement : MonoBehaviour
     /// </summary>
     public void WalkToPlayerLeft()
     {
-        leftWalkPointSet.SetActive(true);
+        gm.leftWalkPointSet.SetActive(true);
         StartCoroutine(WalkingToPlayerLeft());
     }
     
     public void WalkToPlayerRight()
     {
-        rightWalkPointSet.SetActive(true);
+        gm.rightWalkPointSet.SetActive(true);
         StartCoroutine(WalkingToPlayerRight());
     }
 
@@ -55,14 +57,14 @@ public class NPCMovement : MonoBehaviour
     /// <returns></returns>
     IEnumerator WalkingToPlayer()
     {
-        while (currentPtIndex < frontWalkPoints.Length)
+        while (currentPtIndex < gm.frontWalkPoints.Length)
         {
-            if (frontWalkPoints.Length == 0)
+            if (gm.frontWalkPoints.Length == 0)
             {
                 yield break;
             }
             
-            Transform targetPt = frontWalkPoints[currentPtIndex];
+            Transform targetPt = gm.frontWalkPoints[currentPtIndex];
             
             Vector3 direction = targetPt.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
@@ -72,10 +74,9 @@ public class NPCMovement : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPt.position) < 0.1f)
             {
-                /*Debug.Log($"Reached {currentPtIndex}");*/
                 currentPtIndex++;
 
-                if (currentPtIndex >= frontWalkPoints.Length)
+                if (currentPtIndex >= gm.frontWalkPoints.Length)
                 {
                     StopAllCoroutines();
                     currentPtIndex = 0;
@@ -94,14 +95,14 @@ public class NPCMovement : MonoBehaviour
     /// <returns></returns>
     IEnumerator WalkingToPlayerLeft()
     {
-        while (currentPtIndex < leftWalkPoints.Length)
+        while (currentPtIndex < gm.leftWalkPoints.Length)
         {
-            if (leftWalkPoints.Length == 0)
+            if (gm.leftWalkPoints.Length == 0)
             {
                 yield break;
             }
             
-            Transform targetPt = leftWalkPoints[currentPtIndex];
+            Transform targetPt = gm.leftWalkPoints[currentPtIndex];
             
             Vector3 direction = targetPt.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
@@ -111,10 +112,9 @@ public class NPCMovement : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPt.position) < 0.1f)
             {
-                /*Debug.Log($"Reached {currentPtIndex}");*/
                 currentPtIndex++;
 
-                if (currentPtIndex >= leftWalkPoints.Length)
+                if (currentPtIndex >= gm.leftWalkPoints.Length)
                 {
                     StopAllCoroutines();
                     currentPtIndex = 0;
@@ -132,14 +132,14 @@ public class NPCMovement : MonoBehaviour
     /// <returns></returns>
     IEnumerator WalkingToPlayerRight()
     {
-        while (currentPtIndex < rightWalkPoints.Length)
+        while (currentPtIndex < gm.rightWalkPoints.Length)
         {
-            if (rightWalkPoints.Length == 0)
+            if (gm.rightWalkPoints.Length == 0)
             {
                 yield break;
             }
             
-            Transform targetPt = rightWalkPoints[currentPtIndex];
+            Transform targetPt = gm.rightWalkPoints[currentPtIndex];
             
             Vector3 direction = targetPt.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
@@ -149,10 +149,9 @@ public class NPCMovement : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPt.position) < 0.1f)
             {
-                /*Debug.Log($"Reached {currentPtIndex}");*/
                 currentPtIndex++;
 
-                if (currentPtIndex >= rightWalkPoints.Length)
+                if (currentPtIndex >= gm.rightWalkPoints.Length)
                 {
                     StopAllCoroutines();
                     currentPtIndex = 0;
