@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class NPCSpawn : MonoBehaviour
 {
+    public static NPCSpawn instance;
+    
     [SerializeField] private float npcBufferTime;
     public bool npcSpawned = false;
-    /*[SerializeField]
-    List<GameObject> NPCs = new List<GameObject>();*/
     
     [SerializeField]
     GameObject npc;
 
+    void Awake()
+    {
+        if (instance ==null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     void Update()
     {
         if (!npcSpawned)

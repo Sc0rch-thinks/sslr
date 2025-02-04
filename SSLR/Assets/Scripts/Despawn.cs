@@ -23,12 +23,10 @@ public class Despawn : MonoBehaviour
     {
         if (other.CompareTag("NPC"))
         {
-            other.gameObject.SetActive(false);
+            GameManager.instance.currentNPC = null;
+            NPCSpawn.instance.npcSpawned = false;
+            
             Destroy(other.gameObject);
-
-            npcSpawnScript.npcSpawned = false;
         }
     }
-
-
 }
