@@ -15,16 +15,7 @@ using UnityEngine.Serialization;
 
 public class NpcManager : MonoBehaviour
 {
-    /// <summary>
-    /// to test this script
-    /// </summary>
-    private void Start()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            spawnNpc(true , spawnPoints[i]);
-        }
-    }
+
 
     /// <summary>
     /// Assign Npc Manager instance
@@ -51,6 +42,11 @@ public class NpcManager : MonoBehaviour
     /// </summary>
     public Transform[] spawnPoints;
 
+    /// <summary>
+    /// a bool to check if the player is free
+    /// </summary>
+    public bool playerFree = false;
+    
     /// <summary>
     /// collection of all exiting npcs
     /// </summary>
