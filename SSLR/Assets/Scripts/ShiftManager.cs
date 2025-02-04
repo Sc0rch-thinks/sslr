@@ -14,6 +14,8 @@ public class ShiftManager : MonoBehaviour
     [SerializeField]
     private float shiftDuration;
     private float remainingTime;
+    [SerializeField]
+    private GameObject npcSpawnArea;
 
     private Collider shiftTrigger;
     private GameManager gm;
@@ -34,6 +36,7 @@ public class ShiftManager : MonoBehaviour
         {
             Debug.Log("Shift started");
             
+            npcSpawnArea.SetActive(true);
             gm.shiftStarted = true;
             shiftTrigger.enabled = false;
             StartCoroutine(StartWorkShift());
@@ -62,6 +65,7 @@ public class ShiftManager : MonoBehaviour
     {
         Debug.Log("Shift ended!");
         
+        npcSpawnArea.SetActive(false);
         remainingTime = shiftDuration;
         gm.shiftStarted = false;
     }
