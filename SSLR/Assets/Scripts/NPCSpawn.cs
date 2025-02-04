@@ -23,8 +23,10 @@ public class NPCSpawn : MonoBehaviour
     void SpawnNPC()
     {
         StopAllCoroutines();
-        Instantiate(npc, transform.position, Quaternion.identity);
+        GameObject spawnedNPC = Instantiate(npc, transform.position, Quaternion.identity);
         npcSpawned = true;
+
+        GameManager.instance.currentNPC = spawnedNPC;
     }
 
     IEnumerator SpawnNPCAfterWait()

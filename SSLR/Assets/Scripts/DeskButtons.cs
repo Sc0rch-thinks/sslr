@@ -15,20 +15,36 @@ public class DeskButtons : MonoBehaviour
     NPCBehaviour npcBehaviourScript;
     private Player playerScript;
     
-    [SerializeField] private GameObject npcObject;
+    public GameObject npcObject;
 
     private string correctDirection;
     private string directionSent;
 
     void Start()
     {
-        npcMoveScript = npcObject.GetComponent<NPCMovement>();
-        npcBehaviourScript = npcObject.GetComponent<NPCBehaviour>();
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
+    void UpdateNPCReferences()
+    {
+        GameObject npcObject = GameManager.instance.currentNPC;
+
+        if (npcObject != null)
+        {
+            npcMoveScript = npcObject.GetComponent<NPCMovement>();
+            npcBehaviourScript = npcObject.GetComponent<NPCBehaviour>();
+        }
     }
 
     public void DirectToLeft()
     {
+        UpdateNPCReferences();
+        if (npcMoveScript == null || npcBehaviourScript == null)
+        {
+            Debug.LogWarning("NPC references are null");
+            return;
+        }
+        
         npcMoveScript.WalkToPlayerLeft();
         directionSent = "left";
 
@@ -46,6 +62,13 @@ public class DeskButtons : MonoBehaviour
 
     public void DirectToRight()
     {
+        UpdateNPCReferences();
+        if (npcMoveScript == null || npcBehaviourScript == null)
+        {
+            Debug.LogWarning("NPC references are null");
+            return;
+        }
+        
         npcMoveScript.WalkToPlayerRight();
         directionSent = "right";
         

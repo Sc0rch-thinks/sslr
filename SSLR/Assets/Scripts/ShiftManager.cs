@@ -45,7 +45,7 @@ public class ShiftManager : MonoBehaviour
         while (remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
-            Debug.Log("Shift: " + remainingTime);
+            /*Debug.Log("Shift: " + remainingTime);*/
 
             if (Player.score < 0)
             {

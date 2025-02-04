@@ -19,11 +19,10 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// References and Variables
     /// </summary>
-    [SerializeField]
     public bool dayEnded = false;
-    
-    [SerializeField]
     public bool shiftStarted;
+
+    public GameObject currentNPC;
     
     [Header("Walk Points (FOR DEBUGGING")]
     public Transform[] frontWalkPoints;

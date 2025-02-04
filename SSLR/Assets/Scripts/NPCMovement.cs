@@ -33,6 +33,8 @@ public class NPCMovement : MonoBehaviour
     /// </summary>
     void Start()
     {
+        gm = GameManager.instance;
+        
         StartCoroutine(WalkingToPlayer());
     }
     
