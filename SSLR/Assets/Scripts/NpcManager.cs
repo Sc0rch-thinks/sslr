@@ -7,7 +7,6 @@
 
 using System;
 using UnityEngine;
-using System;
 
 using System.Collections.Generic;
 
@@ -52,6 +51,8 @@ public class NpcManager : MonoBehaviour
     /// </summary>
     public GameObject[] currentNpcs;
 
+    public GameObject[] chairPositions;
+
     public void spawnNpc(bool isFemale, Transform spawnPoint)
     {
         var randomNpc=0;
@@ -65,5 +66,19 @@ public class NpcManager : MonoBehaviour
         }
         var npc = Instantiate(isFemale ? femaleNpcs[randomNpc] : maleNpcs[randomNpc], spawnPoint.position, Quaternion.identity);
         // currentNpcs.SetValue(npc,currentNpcs.Length);
+    }
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

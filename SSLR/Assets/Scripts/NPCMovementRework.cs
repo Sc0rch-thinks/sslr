@@ -6,7 +6,7 @@
  */
 
 
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,18 +23,19 @@ public class NpcMovementRework : MonoBehaviour
     public LayerMask despawnArea;
     public Vector3 roamingPoint;
     public Animator animator;
-    public Transform[] chairPosition;
-    
+    private static readonly int IsSitting = Animator.StringToHash("isSitting");
+    private static readonly int Speed = Animator.StringToHash("Speed");
+
 
     public void Update()
     {
         if (agent.velocity.magnitude > 0.1)
         {
-            animator.SetFloat("Speed", 1);
+            animator.SetFloat(Speed, 1);
         }
         else
         {
-            animator.SetFloat("Speed", 0);
+            animator.SetFloat(Speed, 0);
         }
         
    
@@ -44,6 +45,8 @@ public class NpcMovementRework : MonoBehaviour
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         animator = gameObject.GetComponent<Animator>();
+        var sitCoro = SitDown();
+        StartCoroutine(sitCoro);
     }
 
 
@@ -59,16 +62,34 @@ public class NpcMovementRework : MonoBehaviour
         
     }
 
-    public void TakeASeat()
+    public IEnumerator SitDown()
     {
-        
-    }
+        var i = Random.Range(0, NpcManager.instance.chairPositions.Length);
+        Debug.Log(i);
 
-    public void GoToSeat()
-    {
-        var i = UnityEngine.Random.Range(0, chairPosition.Length);
-        agent.SetDestination(chairPosition[i].position);
+
+        var pos = NpcManager.instance.chairPositions[i];
+
+        agent.SetDestination(pos.transform.position);
+
+        var sittingPosition = pos.transform.position+new Vector3(0,0.5f,0);
+        while (true)
+        {
+            var dist= Vector3.Distance(pos.transform.position,gameObject.transform.position);
+            if (dist <0.5)
+            {
+                agent.SetDestination(gameObject.transform.position);
+                gameObject.transform.position=sittingPosition;
+                gameObject.transform.rotation = pos.transform.rotation;
+                animator.SetBool(IsSitting,true);
+                yield break;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
     }
+    
+    
 
     
 

@@ -83,7 +83,7 @@ FirebaseGet();    }
         User = result.Model;
     }
 
-    public async void FirebaseGet()
+    public void FirebaseGet()
     {
         FirebaseDatabase.DefaultInstance.RootReference.Child("stories").GetValueAsync().ContinueWith(task =>
         {
