@@ -58,6 +58,10 @@ public class NpcMovementRework : MonoBehaviour
     public void Wait()
     {
         Debug.Log("walking");
+        if (animator.GetBool(IsSitting))
+        {
+            animator.SetBool(IsSitting,false);
+        }
         agent.SetDestination(roamingPoint);
         
     }
@@ -79,8 +83,8 @@ public class NpcMovementRework : MonoBehaviour
             if (dist <0.5)
             {
                 agent.SetDestination(gameObject.transform.position);
-                gameObject.transform.position=sittingPosition;
                 gameObject.transform.rotation = pos.transform.rotation;
+                gameObject.transform.position=sittingPosition;
                 animator.SetBool(IsSitting,true);
                 yield break;
             }
@@ -88,7 +92,11 @@ public class NpcMovementRework : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-    
+    public void Despawn()
+    {
+        var random= Random.Range(0, NpcManager.instance.despawnPoints.Length);
+        agent.SetDestination(NpcManager.instance.despawnPoints[random].position);
+    }
     
 
     

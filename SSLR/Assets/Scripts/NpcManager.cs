@@ -50,8 +50,15 @@ public class NpcManager : MonoBehaviour
     /// collection of all exiting npcs
     /// </summary>
     public GameObject[] currentNpcs;
-
+    
+    /// <summary>
+    /// a collection of positions for the chairs to sit for the npcs
+    /// </summary>
     public GameObject[] chairPositions;
+    /// <summary>
+    /// a collection of positions for the npcs to despawn
+    /// </summary>
+    public Transform[] despawnPoints;
 
     public void spawnNpc(bool isFemale, Transform spawnPoint)
     {
