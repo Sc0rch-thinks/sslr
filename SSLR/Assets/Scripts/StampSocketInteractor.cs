@@ -20,8 +20,6 @@ public class StampSocketInteractor : MonoBehaviour
     {
         stampSocket.selectEntered.AddListener(OnStampTable);
         stampSocket.selectExited.AddListener(OnStampHeld);
-        
-        
     }
 
     private void OnDisable()
@@ -35,6 +33,7 @@ public class StampSocketInteractor : MonoBehaviour
     {
         isHeld = true;
         Debug.Log("Stamp is held");
+        /*Debug.Log(isHeld.ToString());*/
     }
 
     private void OnStampTable(SelectEnterEventArgs args)
