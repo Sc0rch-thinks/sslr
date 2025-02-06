@@ -18,10 +18,6 @@ public class NpcMovementRework : MonoBehaviour
     public NavMeshAgent agent;
 
     public Transform desk;
-    public float walkRange;
-    public LayerMask waitingArea;
-    public LayerMask despawnArea;
-    public Vector3 roamingPoint;
     public Animator animator;
     private static readonly int IsSitting = Animator.StringToHash("isSitting");
     private static readonly int Speed = Animator.StringToHash("Speed");
@@ -55,16 +51,7 @@ public class NpcMovementRework : MonoBehaviour
         agent.SetDestination(desk.position);
     }
 
-    public void Wait()
-    {
-        Debug.Log("walking");
-        if (animator.GetBool(IsSitting))
-        {
-            animator.SetBool(IsSitting,false);
-        }
-        agent.SetDestination(roamingPoint);
-        
-    }
+    
 
     public IEnumerator SitDown()
     {
