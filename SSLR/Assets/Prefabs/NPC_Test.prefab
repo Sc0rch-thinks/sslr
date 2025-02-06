@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 3286687495593336166}
   m_Layer: 0
   m_Name: Paper
-  m_TagString: Untagged
+  m_TagString: Paper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
