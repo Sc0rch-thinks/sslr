@@ -75,6 +75,11 @@ public class NpcManager : MonoBehaviour
         // currentNpcs.SetValue(npc,currentNpcs.Length);
     }
 
+    private void Start()
+    {
+        spawnNpc(false, spawnPoints[0]);
+    }
+
     public void Awake()
     {
         if (instance == null)

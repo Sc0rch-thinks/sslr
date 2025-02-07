@@ -33,16 +33,13 @@ public class NpcMovementRework : MonoBehaviour
         {
             animator.SetFloat(Speed, 0);
         }
-        
-   
     }
 
     public void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         animator = gameObject.GetComponent<Animator>();
-        var sitCoro = SitDown();
-        StartCoroutine(sitCoro);
+        StartCoroutine(SitDown());
     }
 
 
@@ -51,41 +48,35 @@ public class NpcMovementRework : MonoBehaviour
         agent.SetDestination(desk.position);
     }
 
-    
 
     public IEnumerator SitDown()
     {
         var i = Random.Range(0, NpcManager.instance.chairPositions.Length);
-        Debug.Log(i);
-
-
         var pos = NpcManager.instance.chairPositions[i];
 
-        agent.SetDestination(pos.transform.position);
 
-        var sittingPosition = pos.transform.position+new Vector3(0,0.5f,0);
+        var sittingPosition = pos.transform.position;
+        sittingPosition.y = 0;
+        agent.SetDestination(sittingPosition);
+        
         while (true)
         {
-            var dist= Vector3.Distance(pos.transform.position,gameObject.transform.position);
-            if (dist <0.5)
+            var dist= Vector3.Distance(sittingPosition,gameObject.transform.position);
+            // Debug.Log(dist);
+            if (dist < 0.05f)
             {
                 agent.SetDestination(gameObject.transform.position);
+                animator.SetBool(IsSitting, true);
                 gameObject.transform.rotation = pos.transform.rotation;
-                gameObject.transform.position=sittingPosition;
-                animator.SetBool(IsSitting,true);
-                yield break;
+                break;
             }
-
-            yield return new WaitForEndOfFrame();
+            yield return 0;
         }
     }
+
     public void Despawn()
     {
-        var random= Random.Range(0, NpcManager.instance.despawnPoints.Length);
+        var random = Random.Range(0, NpcManager.instance.despawnPoints.Length);
         agent.SetDestination(NpcManager.instance.despawnPoints[random].position);
     }
-    
-
-    
-
 }

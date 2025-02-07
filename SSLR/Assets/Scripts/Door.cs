@@ -18,7 +18,10 @@ public class Door : MonoBehaviour
     
     [SerializeField] private GameObject doorLeft;
     [SerializeField] private GameObject doorRight;
-
+    /// <summary>
+    /// a value to control delay the door closing
+    /// </summary>
+    public float doorCloseDelay = 0.75f;
     private bool doorOpened = false;
 
     /// <summary>
@@ -39,6 +42,7 @@ public class Door : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         if (!doorOpened && (other.CompareTag("Player") || other.CompareTag("NPC")))
         {
             OpenDoor();
@@ -61,7 +65,7 @@ public class Door : MonoBehaviour
         doorRight.transform.eulerAngles = currentRightRotation;
         
         doorOpened = true;
-        StartCoroutine(CloseDoorAfterDelay(0.75f));
+        StartCoroutine(CloseDoorAfterDelay(doorCloseDelay));
     }
 
     /// <summary>
