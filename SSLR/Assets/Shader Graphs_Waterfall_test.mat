@@ -42,17 +42,17 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 1.4
-    - _Voronoi_Aggitation: 2.11
+    - _Voronoi_Aggitation: 1
     - _Voronoi_power: 2
-    - _Voronoi_scale: 1.93
+    - _Voronoi_scale: 1
     m_Colors:
-    - _Base_colour: {r: 0.21176471, g: 0.7607843, b: 0.5019608, a: 1}
-    - _Normal_speed: {r: 0, g: -0.75, b: 0, a: 0}
-    - _Voronoi_colour: {r: 0.50980395, g: 0.8039216, b: 0.69803923, a: 1}
-    - _Voronoi_speed: {r: -0.34, g: 0.31, b: 0, a: 0}
-    - _Voronoi_tiling: {r: 0.12, g: 0.6, b: 0, a: 0}
+    - _Base_colour: {r: 0.044499658, g: 0.9433962, b: 0.734524, a: 1}
+    - _Normal_speed: {r: -0, g: -0.75, b: 0, a: 0}
+    - _Voronoi_colour: {r: 0.12997892, g: 0.70533437, b: 0.7798742, a: 1}
+    - _Voronoi_speed: {r: 0, g: -0.5, b: 0, a: 0}
+    - _Voronoi_tiling: {r: 1.2, g: 0.6, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8312433292556674154
+--- !u!114 &5533946539239756328
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
