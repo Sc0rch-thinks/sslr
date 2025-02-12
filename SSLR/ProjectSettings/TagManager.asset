@@ -7,6 +7,7 @@ TagManager:
   - Anchor
   - NPC
   - Paper
+  - PlayerHand
   layers:
   - Default
   - TransparentFX
