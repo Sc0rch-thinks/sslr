@@ -7,7 +7,6 @@
 
 using System;
 using UnityEngine;
-
 using System.Collections.Generic;
 
 using UnityEngine.Serialization;
@@ -45,12 +44,11 @@ public class NpcManager : MonoBehaviour
     /// a bool to check if the player is free
     /// </summary>
     public bool playerFree = false;
-    
+
     /// <summary>
     /// collection of all exiting npcs
     /// </summary>
-    public GameObject[] currentNpcs;
-    
+    public List<GameObject> currentNpcs;    
     /// <summary>
     /// a collection of positions for the chairs to sit for the npcs
     /// </summary>
@@ -60,9 +58,10 @@ public class NpcManager : MonoBehaviour
     /// </summary>
     public Transform[] despawnPoints;
 
-    public void spawnNpc(bool isFemale, Transform spawnPoint)
+    public void spawnNpc(bool isFemale)
     {
         var randomNpc=0;
+        var spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
         if (isFemale)
         {
             randomNpc = UnityEngine.Random.Range(0, femaleNpcs.Length);
@@ -72,13 +71,10 @@ public class NpcManager : MonoBehaviour
             randomNpc = UnityEngine.Random.Range(0, maleNpcs.Length);
         }
         var npc = Instantiate(isFemale ? femaleNpcs[randomNpc] : maleNpcs[randomNpc], spawnPoint.position, Quaternion.identity);
-        // currentNpcs.SetValue(npc,currentNpcs.Length);
+        currentNpcs.Add(npc);
+        
     }
 
-    private void Start()
-    {
-        spawnNpc(false, spawnPoints[0]);
-    }
 
     public void Awake()
     {
@@ -93,4 +89,5 @@ public class NpcManager : MonoBehaviour
         }
         
     }
+    
 }

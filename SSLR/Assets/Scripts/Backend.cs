@@ -21,7 +21,7 @@ public class Backend : MonoBehaviour
         {
             AutoConnectRealtime = true
         };
-        
+
 
         Client = new Supabase.Client(url, anonKey, options);
         await Client.InitializeAsync().ContinueWith(task =>
@@ -35,11 +35,13 @@ public class Backend : MonoBehaviour
                 Debug.Log("Supabase Initialized");
             }
         });
-FirebaseGet();    }
+        FirebaseGet();
+    }
 
-    public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelped, int customersHelpedWrongly)
+    public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelped,
+        int customersHelpedWrongly)
     {
-        var user= new Users
+        var user = new Users
         {
             uid = uid,
             score = score,
@@ -56,7 +58,6 @@ FirebaseGet();    }
             }
             else
             {
-                
                 Debug.Log("Data Sent Sucessfully");
             }
         });
@@ -74,7 +75,6 @@ FirebaseGet();    }
         Session = await Client.Auth.SignIn(email, password);
         Debug.Log(Session.User.Id);
         GetData(Session.User.Id);
-        
     }
 
     public async void GetData(string uid)
@@ -83,9 +83,10 @@ FirebaseGet();    }
         User = result.Model;
     }
 
-    public void FirebaseGet()
+    public NpcData FirebaseGet()
     {
-        FirebaseDatabase.DefaultInstance.RootReference.Child("stories").GetValueAsync().ContinueWith(task =>
+        NpcData data = new NpcData();
+        FirebaseDatabase.DefaultInstance.RootReference.Child("scenarios").Child("1").GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -94,8 +95,11 @@ FirebaseGet();    }
             else if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                Debug.Log(snapshot.GetRawJsonValue());
-            }
+                string json = snapshot.GetRawJsonValue();
+                data = JsonUtility.FromJson<NpcData>(json);
+                
+            } 
         });
+        return data;
     }
 }
