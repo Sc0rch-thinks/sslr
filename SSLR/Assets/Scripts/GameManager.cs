@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public bool shiftStarted;
 
     public GameObject currentNPC;
+    public GameObject currentStampDoc;
     
     [Header("Walk Points (FOR DEBUGGING")]
     public Transform[] frontWalkPoints;
