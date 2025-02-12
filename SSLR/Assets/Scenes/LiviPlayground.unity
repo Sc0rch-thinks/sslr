@@ -17472,7 +17472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750ee761fa0da764687aa5e135b985a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paperPrefab: {fileID: 7198325426086921740, guid: e82a63e1655bf9645aba4697304f862d, type: 3}
+  paperPrefab: {fileID: 7198325426086921740, guid: 7c006967660a5b04792e2d45b9e75881, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
