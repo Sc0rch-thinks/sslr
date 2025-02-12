@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 293104327892002700}
   - component: {fileID: 6134616620558523450}
   - component: {fileID: 6557374802837956815}
+  - component: {fileID: 8309060703793887976}
   m_Layer: 0
   m_Name: Spawnable_Doc
   m_TagString: Paper
@@ -687,6 +688,22 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &8309060703793887976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7198325426086921740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3e93bae10a1134893965e7b7848721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  financialStamp: {fileID: 5171638457085779601}
+  residentialStamp: {fileID: 8483741412558904842}
+  dvStamp: {fileID: 6773870658245588299}
+  disabilitiesStamp: {fileID: 6129449821560067841}
 --- !u!1 &8483741412558904842
 GameObject:
   m_ObjectHideFlags: 0

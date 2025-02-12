@@ -6,10 +6,13 @@ using UnityEngine;
 public class StampInteractor : MonoBehaviour
 {
     public string stampName;
+    private StampDocument stampDocScript;
 
     void Awake()
     {
         stampName = gameObject.name;
+        
+        stampDocScript = gameObject.GetComponent<StampDocument>();
     }
     
    private void OnCollisionEnter(Collision collision)
@@ -20,19 +23,19 @@ public class StampInteractor : MonoBehaviour
 
            if (stampName == "Stamp_Financial")
            {
-               Debug.Log("Financial Document");
+               stampDocScript.StampFinancial();
            }
            else if (stampName == "Stamp_Residential")
            {
-               Debug.Log("Residential Document");
+               stampDocScript.StampResidential();
            }
            else if (stampName == "Stamp_DV")
            {
-               Debug.Log("Domestic Violence Document");
+               stampDocScript.StampDV();
            }
            else if (stampName == "Stamp_Disabilities")
            {
-               Debug.Log("Disabilities Document");
+               stampDocScript.StampDisabilities();
            }
        }
    }
