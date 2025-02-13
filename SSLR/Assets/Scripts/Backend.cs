@@ -41,7 +41,7 @@ public class Backend : MonoBehaviour
         FirebaseGet();
     }
 
-    public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelped,
+    public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelpedCorrectly,
         int customersHelpedWrongly)
     {
         var user = new Users
@@ -50,7 +50,7 @@ public class Backend : MonoBehaviour
             score = score,
             displayName = displayName,
             daysPlayed = daysPlayed,
-            customersHelped = customersHelped,
+            customersHelped = customersHelpedCorrectly,
             customersHelpedWrongly = customersHelpedWrongly,
         };
         await Client.From<Users>().Insert(user).ContinueWith(SendTask =>
