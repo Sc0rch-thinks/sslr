@@ -6,13 +6,15 @@ using UnityEngine;
 public class StampInteractor : MonoBehaviour
 {
     public string stampName;
+
+    [SerializeField] private GameObject stampDoc;
     private StampDocument stampDocScript;
 
     void Awake()
     {
         stampName = gameObject.name;
         
-        stampDocScript = gameObject.GetComponent<StampDocument>();
+        stampDocScript = stampDoc.GetComponent<StampDocument>();
     }
     
    private void OnCollisionEnter(Collision collision)

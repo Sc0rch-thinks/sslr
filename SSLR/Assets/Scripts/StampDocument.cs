@@ -8,13 +8,15 @@ public class StampDocument : MonoBehaviour
     [SerializeField] private GameObject residentialStamp;
     [SerializeField] private GameObject dvStamp;
     [SerializeField] private GameObject disabilitiesStamp;
+    [SerializeField] private GameObject signature;
 
-    void Awake()
+    void Start()
     {
         financialStamp.SetActive(false);
         residentialStamp.SetActive(false);
         dvStamp.SetActive(false);
         disabilitiesStamp.SetActive(false);
+        signature.SetActive(false);
     }
     
     public void StampFinancial()
@@ -35,5 +37,10 @@ public class StampDocument : MonoBehaviour
     public void StampDisabilities()
     {
         disabilitiesStamp.SetActive(true);
+    }
+
+    public void SignDocument()
+    {
+        signature.SetActive(true);
     }
 }

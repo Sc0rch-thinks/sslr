@@ -12,11 +12,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class PenInteractor : MonoBehaviour
 {
+    [SerializeField] private GameObject stampDoc;
+    private StampDocument stampDocScript;
+
+    void Awake()
+    {
+        stampDocScript = stampDoc.GetComponent<StampDocument>();
+    }
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (PenSocketInteractor.isPickedUp && collision.gameObject.CompareTag("Paper"))
         {
-            Debug.Log("The pen is writing on the paper!");
+            stampDocScript.SignDocument();
         }
     }
 
