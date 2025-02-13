@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+
+
+@utility main-colour {
+	background-color: #c6cdd9;
+	color: #030a01;
+	font-size: 1rem; /* 16px */
+	line-height: 1.5rem; /* 24px */
+	font-weight: 400;
+}
+
+@utility secondary-colour {
+	background-color: #677a90;
+	color: #f8f9fb;
+	font-weight: 700;
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+}
+@utility section-colour {
+	background-color: #f2cd81;
+	color: #030a01;
+	font-size: 1rem; /* 16px */
+	line-height: 1.5rem; /* 24px */
+	font-weight: 400;
+}
