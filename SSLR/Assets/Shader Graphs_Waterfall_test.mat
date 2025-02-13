@@ -37,17 +37,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Metallic: 0.4
-    - _Normal_strength: 0.12
+    - _Metallic: 0.44
+    - _Normal_strength: 3.7
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 1.4
-    - _Voronoi_Aggitation: 1
+    - _Smoothness: 2.03
+    - _Voronoi_Aggitation: 1.18
     - _Voronoi_power: 2
-    - _Voronoi_scale: 1
+    - _Voronoi_scale: 0.4
     m_Colors:
     - _Base_colour: {r: 0.044499658, g: 0.9433962, b: 0.734524, a: 1}
-    - _Normal_speed: {r: -0, g: -0.75, b: 0, a: 0}
+    - _Normal_speed: {r: 0, g: -0.75, b: 0, a: 0}
     - _Voronoi_colour: {r: 0.12997892, g: 0.70533437, b: 0.7798742, a: 1}
     - _Voronoi_speed: {r: 0, g: -0.5, b: 0, a: 0}
     - _Voronoi_tiling: {r: 1.2, g: 0.6, b: 0, a: 0}
