@@ -25,7 +25,4 @@ public class NpcData
     public int points;
     public bool hasPaper;
     public string correctDepartment;
-
-    
-    
 }

@@ -12,13 +12,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class PenInteractor : MonoBehaviour
 {
-    [SerializeField] private GameObject stampDoc;
     private StampDocument stampDocScript;
-
-    void Awake()
-    {
-        stampDocScript = stampDoc.GetComponent<StampDocument>();
-    }
     
     private void OnCollisionEnter(Collision collision)
     {
@@ -26,7 +20,18 @@ public class PenInteractor : MonoBehaviour
         {
             if (collision.collider.gameObject.name == "Stamp-Sign Area")
             {
-                stampDocScript.SignDocument();
+                stampDocScript = collision.gameObject.GetComponent<StampDocument>();
+                
+                if(stampDocScript != null)
+                {
+                    if(!stampDocScript.isSigned)
+                    {
+                        stampDocScript.SignDocument();
+                    }                }
+                else
+                {
+                    Debug.LogError("Paper doesn't have StampDocScript");
+                }
             }
         }
     }

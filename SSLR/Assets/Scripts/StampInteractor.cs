@@ -7,14 +7,11 @@ public class StampInteractor : MonoBehaviour
 {
     public string stampName;
 
-    [SerializeField] private GameObject stampDoc;
     private StampDocument stampDocScript;
 
     void Awake()
     {
         stampName = gameObject.name;
-        
-        stampDocScript = stampDoc.GetComponent<StampDocument>();
     }
     
    private void OnCollisionEnter(Collision collision)
@@ -23,21 +20,30 @@ public class StampInteractor : MonoBehaviour
        {
            if (collision.collider.gameObject.name == "Stamp-Sign Area")
            {
-               if (stampName == "Stamp_Financial")
+               stampDocScript = collision.gameObject.GetComponent<StampDocument>();
+               
+               if(stampDocScript != null)
                {
-                   stampDocScript.StampFinancial();
+                   if (stampName == "Stamp_Financial" && !stampDocScript.isStamped)
+                   {
+                       stampDocScript.StampFinancial();
+                   }
+                   else if (stampName == "Stamp_Residential" && !stampDocScript.isStamped)
+                   {
+                       stampDocScript.StampResidential();
+                   }
+                   else if (stampName == "Stamp_DV" && !stampDocScript.isStamped)
+                   {
+                       stampDocScript.StampDV();
+                   }
+                   else if (stampName == "Stamp_Disabilities" && !stampDocScript.isStamped)
+                   {
+                       stampDocScript.StampDisabilities();
+                   }
                }
-               else if (stampName == "Stamp_Residential")
+               else
                {
-                   stampDocScript.StampResidential();
-               }
-               else if (stampName == "Stamp_DV")
-               {
-                   stampDocScript.StampDV();
-               }
-               else if (stampName == "Stamp_Disabilities")
-               {
-                   stampDocScript.StampDisabilities();
+                   Debug.LogError("Paper doesn't have StampDocScript");
                }
            }
        }
