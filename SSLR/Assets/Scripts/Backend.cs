@@ -7,6 +7,8 @@ using Firebase.Database;
 
 public class Backend : MonoBehaviour
 {
+        public static Backend instance;
+
     [SerializeField] private string url;
     [SerializeField] private string anonKey;
     public Client Client;
@@ -15,6 +17,7 @@ public class Backend : MonoBehaviour
     public Session Session;
     public Users User;
 
+    
     private async void Start()
     {
         var options = new SupabaseOptions
@@ -102,4 +105,16 @@ public class Backend : MonoBehaviour
         });
         return data;
     }
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }   
 }
