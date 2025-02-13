@@ -21,23 +21,24 @@ public class StampInteractor : MonoBehaviour
    {
        if (StampSocketInteractor.isHeld && collision.gameObject.CompareTag("Paper"))
        {
-           Debug.Log("paper is stamped");
-
-           if (stampName == "Stamp_Financial")
+           if (collision.collider.gameObject.name == "Stamp-Sign Area")
            {
-               stampDocScript.StampFinancial();
-           }
-           else if (stampName == "Stamp_Residential")
-           {
-               stampDocScript.StampResidential();
-           }
-           else if (stampName == "Stamp_DV")
-           {
-               stampDocScript.StampDV();
-           }
-           else if (stampName == "Stamp_Disabilities")
-           {
-               stampDocScript.StampDisabilities();
+               if (stampName == "Stamp_Financial")
+               {
+                   stampDocScript.StampFinancial();
+               }
+               else if (stampName == "Stamp_Residential")
+               {
+                   stampDocScript.StampResidential();
+               }
+               else if (stampName == "Stamp_DV")
+               {
+                   stampDocScript.StampDV();
+               }
+               else if (stampName == "Stamp_Disabilities")
+               {
+                   stampDocScript.StampDisabilities();
+               }
            }
        }
    }

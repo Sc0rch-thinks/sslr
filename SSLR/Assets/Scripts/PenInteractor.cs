@@ -24,7 +24,10 @@ public class PenInteractor : MonoBehaviour
     {
         if (PenSocketInteractor.isPickedUp && collision.gameObject.CompareTag("Paper"))
         {
-            stampDocScript.SignDocument();
+            if (collision.collider.gameObject.name == "Stamp-Sign Area")
+            {
+                stampDocScript.SignDocument();
+            }
         }
     }
 
