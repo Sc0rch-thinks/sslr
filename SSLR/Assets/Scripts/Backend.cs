@@ -7,7 +7,7 @@ using Firebase.Database;
 
 public class Backend : MonoBehaviour
 {
-        public static Backend instance;
+    public static Backend instance;
 
     [SerializeField] private string url;
     [SerializeField] private string anonKey;
