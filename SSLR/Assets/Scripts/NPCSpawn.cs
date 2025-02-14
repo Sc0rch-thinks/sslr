@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class NPCSpawn : MonoBehaviour
 {
-    public static NPCSpawn instance;
+    /*public static NPCSpawn instance;*/
     
+    /*
     [SerializeField] private float npcBufferTime;
-    public bool npcSpawned = false;
+    */
+    /*public bool npcSpawned = false;
+    */
     
-    [SerializeField]
-    GameObject npc;
+    /*[SerializeField]
+    GameObject npc;*/
 
-    void Awake()
+    /*void Awake()
     {
         if (instance ==null)
         {
@@ -22,29 +25,29 @@ public class NPCSpawn : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }*/
     
-    void Update()
+    /*void Update()
     {
         if (!npcSpawned)
         {
             StartCoroutine(SpawnNPCAfterWait());
         }
-    }
+    }*/
 
-    void SpawnNPC()
+    /*void SpawnNPC()
     {
         StopAllCoroutines();
         GameObject spawnedNPC = Instantiate(npc, transform.position, Quaternion.identity);
         npcSpawned = true;
 
         GameManager.instance.currentNPC = spawnedNPC;
-    }
+    }*/
 
-    IEnumerator SpawnNPCAfterWait()
+    /*IEnumerator SpawnNPCAfterWait()
     {
         yield return new WaitForSeconds(npcBufferTime);
 
         SpawnNPC();
-    }
+    }*/
 }

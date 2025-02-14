@@ -24,7 +24,9 @@ public class Despawn : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             GameManager.instance.currentNPC = null;
+            /*
             NPCSpawn.instance.npcSpawned = false;
+            */
             
             Destroy(other.gameObject);
         }

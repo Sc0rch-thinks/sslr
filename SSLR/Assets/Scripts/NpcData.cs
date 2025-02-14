@@ -11,7 +11,6 @@ using UnityEngine.Serialization;
 [Serializable]
 public class NpcData
 {
-    public string name;
     public string initialStatement;
     public string question1;
     public string question2;
