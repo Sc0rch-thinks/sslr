@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Supabase.Gotrue;
 using UnityEngine;
 using TMPro;
 
@@ -22,6 +23,16 @@ public class MenuButtons : MonoBehaviour
     public void Login()
     {
         Backend.instance.SignIn(loginEmailInput.text, loginPasswordInput.text);
+    }
+
+    /// <summary>
+    /// Loads user profile from Supabase
+    /// </summary>
+    public void LoadProfileData()
+    {
+        /*Backend.instance.GetData(Session.User.Id);*/
+        
+        
     }
 
 }

@@ -27,6 +27,7 @@ public class NpcMovementRework : MonoBehaviour
         if (agent.velocity.magnitude > 0.1)
         {
             animator.SetFloat(Speed, 1);
+            animator.SetBool(IsSitting, false);
         }
         else
         {
@@ -70,11 +71,17 @@ public class NpcMovementRework : MonoBehaviour
 
     public IEnumerator SitDown()
     {
-        var i = Random.Range(0, NpcManager.instance.chairPositions.Length);
-        var pos = NpcManager.instance.chairPositions[i];
+        var i = Random.Range(0, NpcManager.instance.Seats.Count);
+        var seat = NpcManager.instance.Seats[i];
+        while (!seat.Available)
+        {
+             i = Random.Range(0, NpcManager.instance.Seats.Count);
+             seat = NpcManager.instance.Seats[i];
+            
+        }
+        
 
-
-        var sittingPosition = pos.transform.position;
+        var sittingPosition = seat.SeatObject.transform.position;
         sittingPosition.y = 0;
         agent.SetDestination(sittingPosition);
         
@@ -86,7 +93,7 @@ public class NpcMovementRework : MonoBehaviour
             {
                 agent.SetDestination(gameObject.transform.position);
                 animator.SetBool(IsSitting, true);
-                gameObject.transform.rotation = pos.transform.rotation;
+                gameObject.transform.rotation = seat.SeatObject.transform.rotation;
                 break;
             }
             yield return 0;
