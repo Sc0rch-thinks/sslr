@@ -30,9 +30,28 @@ public class MenuButtons : MonoBehaviour
     /// </summary>
     public void LoadProfileData()
     {
-        /*Backend.instance.GetData(Session.User.Id);*/
-        
-        
+        if (Backend.instance.Session != null)
+        {
+            Backend.instance.GetData(Backend.instance.Session.User.Id);
+        }
+        else
+        {
+            Debug.Log("Session null, no user logged in");
+        }
+    }
+
+    public void UpdateProfileUI(Users user)
+    {
+        if (user != null)
+        {
+            var totalPeopleHelped = user.customersHelped + user.customersHelpedWrongly;
+            var accuracy = (user.customersHelped/totalPeopleHelped)*100;
+            
+            usernameText.text = user.displayName;
+            daysPlayedText.text = user.daysPlayed.ToString();
+            peopleHelpedText.text = totalPeopleHelped.ToString();
+            accuracyText.text = accuracy.ToString();
+        }
     }
 
 }

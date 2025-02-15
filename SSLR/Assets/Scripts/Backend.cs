@@ -83,6 +83,21 @@ public class Backend : MonoBehaviour
     {
         var result = await Client.From<Users>().Where(x => x.uid == uid).Get();
         User = result.Model;
+
+        if (User != null)
+        {
+            Debug.Log($"User: " + User.displayName);
+            
+            MenuButtons profilePage = FindObjectOfType<MenuButtons>();
+            if (profilePage != null)
+            {
+                profilePage.UpdateProfileUI(User);
+            }
+        }
+        else
+        {
+            Debug.Log("Data cannot retrieve");
+        }
     }
 
     public NpcData FirebaseGet()
