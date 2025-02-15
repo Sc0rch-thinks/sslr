@@ -48,7 +48,9 @@ public class NpcManager : MonoBehaviour
     /// float for time between npc spawns
     /// </summary>
     [SerializeField] private float npcBufferTime;
-
+    
+    public Seat[] Seats;
+    
     /// <summary>
     /// a bool to check if the player is free
     /// </summary>
@@ -58,10 +60,7 @@ public class NpcManager : MonoBehaviour
     /// collection of all exiting npcs
     /// </summary>
     public List<GameObject> currentNpcs;    
-    /// <summary>
-    /// a collection of positions for the chairs to sit for the npcs
-    /// </summary>
-    public GameObject[] chairPositions;
+   
     /// <summary>
     /// a collection of positions for the npcs to despawn
     /// </summary>
@@ -135,5 +134,11 @@ public class NpcManager : MonoBehaviour
             SpawnNPC();
         }
         isSpawning = false;
+    }
+    [Serializable]
+    public struct Seat
+    {
+        public GameObject SeatObject;
+        public bool Available;
     }
 }

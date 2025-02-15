@@ -72,11 +72,11 @@ public class NpcMovementRework : MonoBehaviour
 
     public IEnumerator SitDown()
     {
-        var i = Random.Range(0, NpcManager.instance.Seats.Count);
+        var i = Random.Range(0, NpcManager.instance.Seats.Length);
         var seat = NpcManager.instance.Seats[i];
         while (!seat.Available)
         {
-             i = Random.Range(0, NpcManager.instance.Seats.Count);
+             i = Random.Range(0, NpcManager.instance.Seats.Length);
              seat = NpcManager.instance.Seats[i];
             
         }

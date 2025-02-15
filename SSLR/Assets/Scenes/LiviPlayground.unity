@@ -4809,17 +4809,14 @@ MonoBehaviour:
   dayEnded: 0
   shiftStarted: 0
   currentNPC: {fileID: 0}
-  frontWalkPoints:
-  - {fileID: 1521924626}
-  - {fileID: 2036976913}
-  leftWalkPoints:
-  - {fileID: 950032348}
-  - {fileID: 397894338}
-  rightWalkPoints:
-  - {fileID: 2027209539}
-  - {fileID: 319260660}
-  leftWalkPointSet: {fileID: 2107051479}
-  rightWalkPointSet: {fileID: 1008392718}
+  initialStatementText: {fileID: 0}
+  playerQuestionOneText: {fileID: 0}
+  playerQuestionTwoText: {fileID: 0}
+  playerQuestionThreeText: {fileID: 0}
+  npcAnswerOneText: {fileID: 0}
+  npcAnswerTwoText: {fileID: 0}
+  npcAnswerThreeText: {fileID: 0}
+  playerResponse: {fileID: 0}
 --- !u!114 &520849217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4892,6 +4889,9 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1126609777}
   npcBufferTime: 5
+  Seats:
+  - SeatObject: {fileID: 0}
+    Available: 0
   playerFree: 0
   currentNpcs: []
   despawnPoints: []
