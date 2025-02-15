@@ -21,7 +21,8 @@ public class NpcMovementRework : MonoBehaviour
     private static readonly int IsSitting = Animator.StringToHash("isSitting");
     private static readonly int Speed = Animator.StringToHash("Speed");
 
-
+    NpcData npcData;
+    
     public void Update()
     {
         if (agent.velocity.magnitude > 0.1)
@@ -104,5 +105,20 @@ public class NpcMovementRework : MonoBehaviour
     {
         var random = Random.Range(0, NpcManager.instance.despawnPoints.Length);
         agent.SetDestination(NpcManager.instance.despawnPoints[random].position);
+    }
+
+    public void LoadNPCDialogue()
+    {
+        GameManager.instance.initialStatementText.text = npcData.initialStatement;
+        
+        GameManager.instance.playerQuestionOneText.text = npcData.question1;
+        GameManager.instance.playerQuestionTwoText.text = npcData.question2;
+        GameManager.instance.playerQuestionThreeText.text = npcData.question3;
+        
+        GameManager.instance.npcAnswerOneText.text = npcData.answer1;
+        GameManager.instance.npcAnswerTwoText.text = npcData.answer2;
+        GameManager.instance.npcAnswerThreeText.text = npcData.answer3;
+
+        GameManager.instance.playerResponse.text = npcData.response3;
     }
 }

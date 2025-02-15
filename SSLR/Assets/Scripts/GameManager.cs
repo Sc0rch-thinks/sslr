@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -24,13 +25,26 @@ public class GameManager : MonoBehaviour
 
     public GameObject currentNPC;
     
-    [Header("Walk Points (FOR DEBUGGING")]
+    /*[Header("Walk Points (FOR DEBUGGING")]
     public Transform[] frontWalkPoints;
     public Transform[] leftWalkPoints;
     public Transform[] rightWalkPoints;
     
     public GameObject leftWalkPointSet;
-    public GameObject rightWalkPointSet;
+    public GameObject rightWalkPointSet;*/
+    
+    [Header("NPC Dialogue")]
+    public TextMeshProUGUI initialStatementText;
+    
+    public TextMeshProUGUI playerQuestionOneText;
+    public TextMeshProUGUI playerQuestionTwoText;
+    public TextMeshProUGUI playerQuestionThreeText;
+    
+    public TextMeshProUGUI npcAnswerOneText;
+    public TextMeshProUGUI npcAnswerTwoText;
+    public TextMeshProUGUI npcAnswerThreeText;
+
+    public TextMeshProUGUI playerResponse;
 
     /// <summary>
     /// Do Not Destroy on Load
