@@ -49,7 +49,7 @@ public class Backend : MonoBehaviour
             score = score,
             displayName = displayName,
             daysPlayed = daysPlayed,
-            customersHelped = customersHelpedCorrectly,
+            customersHelpedCorrectly = customersHelpedCorrectly,
             customersHelpedWrongly = customersHelpedWrongly,
         };
         await Client.From<Users>().Insert(user).ContinueWith(SendTask =>

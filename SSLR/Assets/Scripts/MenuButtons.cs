@@ -49,8 +49,8 @@ public class MenuButtons : MonoBehaviour
     {
         if (user != null)
         {
-            var totalPeopleHelped = user.customersHelped + user.customersHelpedWrongly;
-            var accuracy = totalPeopleHelped > 0? ((float)user.customersHelped/totalPeopleHelped)*100:0;
+            var totalPeopleHelped = user.customersHelpedCorrectly + user.customersHelpedWrongly;
+            var accuracy = totalPeopleHelped > 0? ((float)user.customersHelpedCorrectly/totalPeopleHelped)*100:0;
             
             Debug.Log($"Updating UI: {user.displayName}, Days Played: {user.daysPlayed}, Accuracy: {accuracy}%");
             
