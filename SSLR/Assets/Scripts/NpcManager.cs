@@ -95,7 +95,7 @@ public class NpcManager : MonoBehaviour
     {
         if (gm.shiftStarted)
         {
-            if (currentNpcs.Count < 6 && !isSpawning)
+            if (currentNpcs.Count < 4 && !isSpawning)
             {
                 StartCoroutine(SpawnNPCAfterWait());
             }
@@ -129,12 +129,13 @@ public class NpcManager : MonoBehaviour
         isSpawning = true;
         yield return new WaitForSeconds(npcBufferTime);
         
-        if(currentNpcs.Count < 6)
+        if(currentNpcs.Count < 4)
         {
             SpawnNPC();
         }
         isSpawning = false;
     }
+    
     [Serializable]
     public struct Seat
     {

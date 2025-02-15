@@ -13,7 +13,9 @@ using UnityEngine;
 public class Despawn : MonoBehaviour
 {
     private Player playerScript;
+    /*
     NPCSpawn npcSpawnScript;
+    */
     
     /// <summary>
     /// Destroy NPC object on trigger enter
