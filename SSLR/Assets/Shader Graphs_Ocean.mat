@@ -8,12 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_Ocean
-  m_Shader: {fileID: -6465566751694194690, guid: 0117295cb4b17404abefeefc5581d597, type: 3}
-  m_Parent: {fileID: 0}
+  m_Shader: {fileID: -6465566751694194690, guid: 7cac72644a1d23f43a74a3333c2e9751, type: 3}
+  m_Parent: {fileID: 2100000, guid: 0975f0e87a1fecc4293bb11f20d0709b, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -23,10 +23,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Foam:
-        m_Texture: {fileID: 2800000, guid: 7d20ba5b14a6f90448f4935792bda5fd, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Main_normal:
         m_Texture: {fileID: 2800000, guid: e798d0cc776c7554789889f832f7c8e8, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -35,30 +31,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 21e35dff0765d4e4188133c25557cec0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Depth: 1
     - _Displacement: 0.03
     - _Foam_Depth: 1.54
     - _Foam_Strength: 2.43
     - _Foam_Tile: 0.75
     - _Normal_Strength: 0.243
-    - _QueueControl: 0
-    - _QueueOffset: 0
     - _Smoothness: 1
-    - _Strength: 0.5
     m_Colors:
     - _Dark_blue: {r: 0, g: 1, b: 0.70233154, a: 0.8509804}
     - _Light_blue: {r: 0, g: 0.9882353, b: 0.7314864, a: 0.14901961}

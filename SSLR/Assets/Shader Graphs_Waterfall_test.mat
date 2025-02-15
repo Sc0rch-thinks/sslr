@@ -44,7 +44,7 @@ Material:
     - _Smoothness: 2.03
     - _Voronoi_Aggitation: 1.18
     - _Voronoi_power: 2
-    - _Voronoi_scale: 0.4
+    - _Voronoi_scale: 6
     m_Colors:
     - _Base_colour: {r: 0.044499658, g: 0.9433962, b: 0.734524, a: 1}
     - _Normal_speed: {r: 0, g: -0.75, b: 0, a: 0}
