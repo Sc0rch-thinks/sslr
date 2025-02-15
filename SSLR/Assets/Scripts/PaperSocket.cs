@@ -35,13 +35,34 @@ public class PaperSocket : MonoBehaviour
 
     private void OnPaperAttached(SelectEnterEventArgs args)
     {
+        GameObject paperObject = args.interactableObject.transform.gameObject;
+        string paperName = paperObject.name;
+        
         if (socketName == "Paper Socket_NPC")
         {
-            Debug.Log("Paper returned to NPC");
+            if (paperName == "Spawnable_Doc")
+            {
+                Debug.Log("Document given");
+                Destroy(paperObject);
+            }
+
+            if (paperName == "NPC_Doc")
+            {
+                return;
+            }
         }
         else if (socketName == "Paper Socket")
         {
-            Debug.Log("Paper placed on table");
+            if (paperName == "Spawnable_Doc")
+            {
+                return;
+            }
+
+            if (paperName == "NPC_Doc")
+            {
+                Debug.Log("Document submitted");
+                Destroy(paperObject);
+            }
         }
     }
     

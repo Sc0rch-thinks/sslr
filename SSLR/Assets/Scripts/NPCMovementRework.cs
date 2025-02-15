@@ -22,6 +22,7 @@ public class NpcMovementRework : MonoBehaviour
     private static readonly int IsSitting = Animator.StringToHash("isSitting");
     private static readonly int Speed = Animator.StringToHash("Speed");
 
+    public TextMeshProUGUI npcWelcomeText;
     public TextMeshProUGUI initialStatementText;
     public TextMeshProUGUI npcAnswerOneText;
     public TextMeshProUGUI npcAnswerTwoText;
@@ -30,6 +31,7 @@ public class NpcMovementRework : MonoBehaviour
     [SerializeField] private GameObject npcSpeechBubble;
     
     public NpcData npcData;
+    public string correctService;
     
     public void Update()
     {
@@ -79,9 +81,10 @@ public class NpcMovementRework : MonoBehaviour
                 
                 npcSpeechBubble.SetActive(true);
                 GameManager.instance.playerDialogue.SetActive(true);
-                Debug.Log($"{gameObject.name} reached desk");
                 
                 yield return new WaitUntil(() => npcData != null);
+
+                correctService = npcData.correctDepartment;
                 
                 LoadNPCDialogue();
                 break;
@@ -142,6 +145,7 @@ public class NpcMovementRework : MonoBehaviour
             return;
         }
 
+        npcWelcomeText.text = "Hello";
         initialStatementText.text = npcData.initialStatement;
         
         GameManager.instance.playerQuestionOneText.text = npcData.question1;

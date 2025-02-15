@@ -123,10 +123,12 @@ public class Backend : MonoBehaviour
                     if (!string.IsNullOrEmpty(json))
                     {
                         target.npcData = JsonUtility.FromJson<NpcData>(json);
+                        target.correctService = target.npcData.correctDepartment;
                         Debug.Log($"NPC Loaded: {target.npcData.initialStatement}");
 
                         if (GameManager.instance.currentNPC == target.gameObject)
                         {
+                            GameManager.instance.currentNPCCorrectDepartment = target.correctService;
                             target.LoadNPCDialogue();
                         }
                     }

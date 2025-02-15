@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public GameObject currentNPC;
 
+    public string currentNPCCorrectDepartment;
+
     ///<summary>
     /// References for player-npc dialogue
     /// </summary>    
@@ -65,5 +67,16 @@ public class GameManager : MonoBehaviour
     public void SetCurrentNPC(GameObject npc)
     {
         currentNPC = npc;
+        
+        NpcMovementRework npcScript = npc.GetComponent<NpcMovementRework>();
+        if (npcScript != null)
+        {
+            currentNPCCorrectDepartment = npcScript.correctService;
+            Debug.Log($"Current NPC service: {currentNPCCorrectDepartment}");
+        }
+        else
+        {
+            Debug.LogError("NPC Script not found on NPC");
+        }
     }
 }
