@@ -4,6 +4,7 @@ using Supabase.Gotrue;
 using Client = Supabase.Client;
 using Firebase;
 using Firebase.Database;
+using Firebase.Extensions;
 
 public class Backend : MonoBehaviour
 {
@@ -37,7 +38,6 @@ public class Backend : MonoBehaviour
                 Debug.Log("Supabase Initialized");
             }
         });
-        FirebaseGet();
     }
 
     public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelpedCorrectly,
@@ -105,25 +105,28 @@ public class Backend : MonoBehaviour
         }
     }
 
-    public NpcData FirebaseGet()
+    public void FirebaseGet(NpcMovementRework target)
     {
         NpcData data = new NpcData();
-        FirebaseDatabase.DefaultInstance.RootReference.Child("scenarios").Child("1").GetValueAsync().ContinueWith(task =>
-        {
-            if (task.IsFaulted)
+        FirebaseDatabase.DefaultInstance.RootReference.Child("scenarios").Child("1").GetValueAsync()
+            .ContinueWithOnMainThread(task =>
             {
-                Debug.LogError(task.Exception);
-            }
-            else if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-                string json = snapshot.GetRawJsonValue();
-                data = JsonUtility.FromJson<NpcData>(json);
-                
-            } 
-        });
-        return data;
+                if (task.IsFaulted)
+                {
+                    Debug.LogError(task.Exception);
+                }
+                else if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    string json = snapshot.GetRawJsonValue();
+                    data = JsonUtility.FromJson<NpcData>(json);
+                    target.npcData = data;
+                }
+
+                ;
+            });
     }
+
     private void Awake()
     {
         if (instance == null)
@@ -135,5 +138,5 @@ public class Backend : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }   
+    }
 }

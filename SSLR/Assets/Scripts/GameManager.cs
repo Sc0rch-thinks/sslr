@@ -34,17 +34,13 @@ public class GameManager : MonoBehaviour
     public GameObject rightWalkPointSet;*/
     
     [Header("NPC Dialogue")]
-    public TextMeshProUGUI initialStatementText;
-    
     public TextMeshProUGUI playerQuestionOneText;
     public TextMeshProUGUI playerQuestionTwoText;
     public TextMeshProUGUI playerQuestionThreeText;
-    
-    public TextMeshProUGUI npcAnswerOneText;
-    public TextMeshProUGUI npcAnswerTwoText;
-    public TextMeshProUGUI npcAnswerThreeText;
 
     public TextMeshProUGUI playerResponse;
+
+    public GameObject playerDialogue;
 
     /// <summary>
     /// Do Not Destroy on Load
@@ -60,5 +56,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        playerDialogue.SetActive(false);
     }   
 }

@@ -9,6 +9,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class NpcMovementRework : MonoBehaviour
 {
@@ -21,7 +22,14 @@ public class NpcMovementRework : MonoBehaviour
     private static readonly int IsSitting = Animator.StringToHash("isSitting");
     private static readonly int Speed = Animator.StringToHash("Speed");
 
-    NpcData npcData;
+    public TextMeshProUGUI initialStatementText;
+    public TextMeshProUGUI npcAnswerOneText;
+    public TextMeshProUGUI npcAnswerTwoText;
+    public TextMeshProUGUI npcAnswerThreeText;
+
+    [SerializeField] private GameObject npcSpeechBubble;
+    
+    public NpcData npcData;
     
     public void Update()
     {
@@ -40,7 +48,12 @@ public class NpcMovementRework : MonoBehaviour
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         animator = gameObject.GetComponent<Animator>();
+        Backend.instance.FirebaseGet(this);
+        
+        npcSpeechBubble.SetActive(false);
+        
         StartCoroutine(SitDown());
+        LoadNPCDialogue();
     }
 
     public void Called()
@@ -61,8 +74,11 @@ public class NpcMovementRework : MonoBehaviour
             {
                 agent.SetDestination(gameObject.transform.position);
                 gameObject.transform.rotation = pos.transform.rotation;
-                break;
                 
+                npcSpeechBubble.SetActive(true);
+                GameManager.instance.playerDialogue.SetActive(true);
+                LoadNPCDialogue();
+                break;
             }
 
             yield return 0;
@@ -89,7 +105,6 @@ public class NpcMovementRework : MonoBehaviour
         while (true)
         {
             var dist= Vector3.Distance(sittingPosition,gameObject.transform.position);
-            // Debug.Log(dist);
             if (dist < 0.05f)
             {
                 agent.SetDestination(gameObject.transform.position);
@@ -110,15 +125,17 @@ public class NpcMovementRework : MonoBehaviour
 
     public void LoadNPCDialogue()
     {
-        GameManager.instance.initialStatementText.text = npcData.initialStatement;
+        Debug.Log("Loading NPC Dialogue");
+        Debug.Log(npcData.initialStatement);
+        initialStatementText.text = npcData.initialStatement;
         
         GameManager.instance.playerQuestionOneText.text = npcData.question1;
         GameManager.instance.playerQuestionTwoText.text = npcData.question2;
         GameManager.instance.playerQuestionThreeText.text = npcData.question3;
         
-        GameManager.instance.npcAnswerOneText.text = npcData.answer1;
-        GameManager.instance.npcAnswerTwoText.text = npcData.answer2;
-        GameManager.instance.npcAnswerThreeText.text = npcData.answer3;
+        npcAnswerOneText.text = npcData.answer1;
+        npcAnswerTwoText.text = npcData.answer2;
+        npcAnswerThreeText.text = npcData.answer3;
 
         GameManager.instance.playerResponse.text = npcData.response3;
     }
