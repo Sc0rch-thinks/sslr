@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Solace Of Service</title>
+		<link rel="stylesheet" href="main.css" />
+		<link rel="icon" type="image/x-icon" href="./img/SOS_Logo_WBG.png" />
+	</head>
+	<body class="h-screen w-screen main-colour">
+		<header class="flex w-full h-20 secondary-colour fixed top-0 left-0 right-0">
+			<img src="./img/SOS_Logo_WBG.png" alt="product logo" class="p-1 ml-10" />
+			<nav class="w-full flex justify-around">
+				<a href="./index.html" class="px-4 text-justify h-fit w-fit self-center"
+					><h1>Home</h1></a
+				>
+				<a href="./about.html" class="px-4 text-justify h-fit w-fit self-center"
+					><h1>About SSLR</h1></a
+				>
+				<a href="#" class="px-4 text-justify h-fit w-fit self-center"><h1>Profile</h1></a>
+			</nav>
+		</header>
+		<div class="h-20"></div>
+		<dialog
+			id="signInDialog"
+			class="section-colour w-[40vw] absolute top-[50%] left-[50%] translate-[-50%] backdrop:opacity-75 backdrop:bg-zinc800"
+		>
+			<b>Login</b>
+			<form>
+				<label for="email">Email:</label><br />
+				<input
+					type="email"
+					name="email"
+					id="email"
+					class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+				/><br />
+				<label for="password">Password:</label><br />
+				<input
+					type="password"
+					name="password"
+					id="password"
+					class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+				/><br />
+				<button
+					autofocus
+					type="submit"
+					id="SignInSubmit"
+					class="cursor-pointer px-1 border-2 my-2 main-colour border-black rounded-md hover:bg-slate-200"
+				>
+					SignIn</button
+				><br />
+				<button
+					id="signinToSignup"
+					type="button"
+					class="cursor-pointer px-1 my-2 rounded-md"
+				>
+					Dont have an account? Click here to create one.
+				</button>
+			</form>
+		</dialog>
+		<dialog
+		open
+		id="signDialog"
+		class="section-colour w-[40vw] absolute top-[50%] left-[50%] translate-[-50%] backdrop:opacity-75 backdrop:bg-zinc800"
+	>
+		<b>Login</b>
+		<form>
+			<label for="email">Email:</label><br />
+			<input
+				type="email"
+				name="email"
+				id="email"
+				class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+			/><br />
+			<label for="password">Password:</label><br />
+			<input
+				type="password"
+				name="password"
+				id="password"
+				class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+			/><br />
+			<button
+				autofocus
+				type="submit"
+				id="SignInSubmit"
+				class="cursor-pointer px-1 border-2 my-2 main-colour border-black rounded-md hover:bg-slate-200"
+			>
+				SignIn</button
+			><br />
+			<button
+				id="signinToSignup"
+				type="button"
+				class="cursor-pointer px-1 my-2 rounded-md"
+			>
+				Dont have an account? Click here to create one.
+			</button>
+		</form>
+	</dialog>
+		<footer class="secondary-colour h-40">
+			<h2></h2>
+		</footer>
+		<script type="module" src="./profile.js"></script>
+	</body>
+</html>

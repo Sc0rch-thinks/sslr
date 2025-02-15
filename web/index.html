@@ -5,21 +5,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Solace Of Service</title>
 		<link rel="stylesheet" href="./main.css" />
-		<link rel="icon" type="image/x-icon" href="./img/favicon.png" />
+		<link rel="icon" type="image/x-icon" href="./img/SOS_Logo_WBG.png" />
 	</head>
 	<body class="h-screen w-screen main-colour">
-		<nav
-			class="flex w-full h-20 secondary-colour fixed top-0 left-0 right-0 border-b-4 border-black"
-		>
+		<header class="flex w-full h-20 secondary-colour fixed top-0 left-0 right-0">
 			<img src="./img/SOS_Logo_WBG.png" alt="product logo" class="p-1 ml-10" />
-			<div class="w-full flex justify-around">
+			<nav class="w-full flex justify-around">
 				<a href="#" class="px-4 text-justify h-fit w-fit self-center"><h1>Home</h1></a>
 				<a href="./about.html" class="px-4 text-justify h-fit w-fit self-center"
 					><h1>About SSLR</h1></a
 				>
-				<a href="#" class="px-4 text-justify h-fit w-fit self-center"><h1>Profile</h1></a>
-			</div>
-		</nav>
+				<a href="./profile.html" class="px-4 text-justify h-fit w-fit self-center"
+					><h1>Profile</h1></a
+				>
+			</nav>
+		</header>
 		<section class="flex justify-center pb-10 pt-28 px-[15vw]">
 			<img
 				src="./img/gameSSPlaceholder.jpg"
@@ -69,11 +69,15 @@
 		</section>
 		<section class="h-fit w-full px-[15vw] py-8 flex flex-col">
 			<h1 class="text-2xl font-bold pb-2 w-full">SYSTEM REQUIREMENTS</h1>
-			<div class="flex h-fit">
-				<img src="./img/meta-quest2.jpeg" alt="picture of a meta quest 2" class="h-" />
+			<div class="flex h-60">
+				<img
+					src="./img/meta-quest2.jpeg"
+					alt="picture of a meta quest 2"
+					class="h-full aspect-video"
+				/>
 				<div class="px-2.5">
-                    <h2 class="font-bold">Minimum</h2>
-                    <ul >
+					<h2 class="font-bold">Minimum</h2>
+					<ul>
 						<li>OS: Meta Horizon OS</li>
 						<li>Chipset: Qualcomm Snapdragon XR2.</li>
 						<li>GPU: Qualcomm Adreno 650.</li>
@@ -81,6 +85,13 @@
 					</ul>
 				</div>
 			</div>
+		</section>
+
+		<section class="h-fit w-full px-[15vw] py-8 flex flex-col section-colour">
+			<h1 class="text-2xl font-bold pb-2 w-full">Download Now</h1>
+			<a href="./assets/app.apk" download="Solace_Of_Service.apk"
+				>Click here for download</a
+			>
 		</section>
 		<footer class="secondary-colour h-40">
 			<h2></h2>
