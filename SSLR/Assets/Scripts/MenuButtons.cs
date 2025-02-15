@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
@@ -24,4 +23,5 @@ public class MenuButtons : MonoBehaviour
     {
         Backend.instance.SignIn(loginEmailInput.text, loginPasswordInput.text);
     }
+
 }

@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: police
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 383875a814f17c444bb652cf8d898ef4, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 383875a814f17c444bb652cf8d898ef4, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -157,7 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  desk: {fileID: 0}
   animator: {fileID: 0}
 --- !u!195 &146904424308101253
 NavMeshAgent:

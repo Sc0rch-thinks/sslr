@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: male5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa019e4b86d491842b5fa525d23d5dc6, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: fa019e4b86d491842b5fa525d23d5dc6, type: 3}
     m_RemovedGameObjects: []
@@ -142,7 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  desk: {fileID: 0}
   animator: {fileID: 0}
 --- !u!136 &8746939936561736175
 CapsuleCollider:
