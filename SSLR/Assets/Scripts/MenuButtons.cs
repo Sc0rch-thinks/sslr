@@ -57,7 +57,7 @@ public class MenuButtons : MonoBehaviour
             usernameText.text = user.displayName;
             daysPlayedText.text = user.daysPlayed.ToString();
             peopleHelpedText.text = totalPeopleHelped.ToString();
-            accuracyText.text = accuracyText.ToString() + "%";
+            accuracyText.text = $"{accuracy:F2}%";
         }
         else
         {
