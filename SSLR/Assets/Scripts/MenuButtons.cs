@@ -33,6 +33,11 @@ public class MenuButtons : MonoBehaviour
         if (Backend.instance.Session != null)
         {
             Backend.instance.GetData(Backend.instance.Session.User.Id);
+
+            if (Backend.instance.User != null)
+            {
+                UpdateProfileUI(Backend.instance.User);
+            }
         }
         else
         {
@@ -45,12 +50,18 @@ public class MenuButtons : MonoBehaviour
         if (user != null)
         {
             var totalPeopleHelped = user.customersHelped + user.customersHelpedWrongly;
-            var accuracy = (user.customersHelped/totalPeopleHelped)*100;
+            var accuracy = totalPeopleHelped > 0? ((float)user.customersHelped/totalPeopleHelped)*100:0;
+            
+            Debug.Log($"Updating UI: {user.displayName}, Days Played: {user.daysPlayed}, Accuracy: {accuracy}%");
             
             usernameText.text = user.displayName;
             daysPlayedText.text = user.daysPlayed.ToString();
             peopleHelpedText.text = totalPeopleHelped.ToString();
-            accuracyText.text = accuracy.ToString();
+            accuracyText.text = accuracyText.ToString() + "%";
+        }
+        else
+        {
+            Debug.LogError("User data is null. UI not updated");
         }
     }
 

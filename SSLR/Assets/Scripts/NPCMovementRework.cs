@@ -78,10 +78,10 @@ public class NpcMovementRework : MonoBehaviour
         {
              i = Random.Range(0, NpcManager.instance.Seats.Length);
              seat = NpcManager.instance.Seats[i];
-            
+             yield return new WaitForSeconds(2f);
         }
         
-
+        seat.Available = false;
         var sittingPosition = seat.SeatObject.transform.position;
         sittingPosition.y = 0;
         agent.SetDestination(sittingPosition);
@@ -95,6 +95,7 @@ public class NpcMovementRework : MonoBehaviour
                 agent.SetDestination(gameObject.transform.position);
                 animator.SetBool(IsSitting, true);
                 gameObject.transform.rotation = seat.SeatObject.transform.rotation;
+                
                 break;
             }
             yield return 0;

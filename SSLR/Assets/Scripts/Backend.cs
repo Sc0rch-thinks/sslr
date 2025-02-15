@@ -91,7 +91,12 @@ public class Backend : MonoBehaviour
             MenuButtons profilePage = FindObjectOfType<MenuButtons>();
             if (profilePage != null)
             {
+                Debug.Log("Updating UI...");
                 profilePage.UpdateProfileUI(User);
+            }
+            else
+            {
+                Debug.Log("MenuButtons not found");
             }
         }
         else
