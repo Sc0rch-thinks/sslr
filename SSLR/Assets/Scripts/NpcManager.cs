@@ -72,6 +72,11 @@ public class NpcManager : MonoBehaviour
     /// </summary>
     private bool isSpawning = false;
     
+    /// <summary>
+    /// the position of the desk
+    /// </summary>
+    public Transform desk;
+    
     void Awake()
     {
         if (instance == null)

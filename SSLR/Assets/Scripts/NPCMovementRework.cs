@@ -17,7 +17,6 @@ public class NpcMovementRework : MonoBehaviour
     /// </summary>
     public NavMeshAgent agent;
 
-    public Transform desk;
     public Animator animator;
     private static readonly int IsSitting = Animator.StringToHash("isSitting");
     private static readonly int Speed = Animator.StringToHash("Speed");
@@ -42,10 +41,30 @@ public class NpcMovementRework : MonoBehaviour
         StartCoroutine(SitDown());
     }
 
-
-    public void CustomerCalled()
+    public void Called()
     {
-        agent.SetDestination(desk.position);
+        StartCoroutine(CustomerCalled());
+    }
+    
+    public IEnumerator CustomerCalled()
+    {
+        var pos = NpcManager.instance.desk;
+        agent.SetDestination(pos.position);
+        while (true)
+        {
+            var npcpos = gameObject.transform.position;
+            npcpos.y = 0;
+            var dist= Vector3.Distance(pos.position,npcpos);
+            if (dist<0.5f)
+            {
+                agent.SetDestination(gameObject.transform.position);
+                gameObject.transform.rotation = pos.transform.rotation;
+                break;
+                
+            }
+
+            yield return 0;
+        }
     }
 
 

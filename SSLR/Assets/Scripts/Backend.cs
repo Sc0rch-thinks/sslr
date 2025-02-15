@@ -12,8 +12,7 @@ public class Backend : MonoBehaviour
     [SerializeField] private string url;
     [SerializeField] private string anonKey;
     public Client Client;
-    public string email;
-    public string password;
+  
     public Session Session;
     public Users User;
 
