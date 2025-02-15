@@ -27,13 +27,14 @@ public class GameManager : MonoBehaviour
     /// NPC in front of desk
     /// </summary>
     public GameObject currentNPC;
-
     public string currentNPCCorrectDepartment;
+
+    public bool buttonsPressedBefore;
 
     ///<summary>
     /// References for player-npc dialogue
     /// </summary>    
-    [Header("NPC Dialogue")]
+    [Header("NPC Dialogue")] 
     public TextMeshProUGUI playerQuestionOneText;
     public TextMeshProUGUI playerQuestionTwoText;
     public TextMeshProUGUI playerQuestionThreeText;

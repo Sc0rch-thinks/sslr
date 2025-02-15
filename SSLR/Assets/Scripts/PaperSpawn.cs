@@ -35,8 +35,6 @@ public class PaperSpawn : MonoBehaviour
         {
             handInPaperSpawn = true;
             playerHand = other.GetComponent<XRDirectInteractor>();
-            
-            Debug.Log("Player hand in paper area!");
         }
     }
 
@@ -46,8 +44,6 @@ public class PaperSpawn : MonoBehaviour
         {
             handInPaperSpawn = false;
             playerHand = null;
-            
-            Debug.Log("Player hand left paper area!");
         }
     }
 
@@ -60,7 +56,6 @@ public class PaperSpawn : MonoBehaviour
             
             if (isGrabbing)
             {
-                Debug.Log("Player hand grabbing in paper area!");
                 SpawnPaper();
             }
         }
@@ -71,8 +66,6 @@ public class PaperSpawn : MonoBehaviour
         GameObject spawnedPaper = Instantiate(paperPrefab, playerHand.transform.position, Quaternion.identity);
         XRGrabInteractable grabComponent = spawnedPaper.GetComponent<XRGrabInteractable>();
         
-        Debug.Log("Paper Spawned!");
-
         if (grabComponent != null)
         {
             playerHand.interactionManager.SelectEnter((IXRSelectInteractor)playerHand, (IXRSelectInteractable)grabComponent);
