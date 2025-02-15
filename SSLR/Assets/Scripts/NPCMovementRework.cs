@@ -51,9 +51,7 @@ public class NpcMovementRework : MonoBehaviour
         Backend.instance.FirebaseGet(this);
         
         npcSpeechBubble.SetActive(false);
-        
         StartCoroutine(SitDown());
-        LoadNPCDialogue();
     }
 
     public void Called()
@@ -65,18 +63,26 @@ public class NpcMovementRework : MonoBehaviour
     {
         var pos = NpcManager.instance.desk;
         agent.SetDestination(pos.position);
+        
         while (true)
         {
             var npcpos = gameObject.transform.position;
             npcpos.y = 0;
             var dist= Vector3.Distance(pos.position,npcpos);
+            
             if (dist<0.5f)
             {
                 agent.SetDestination(gameObject.transform.position);
                 gameObject.transform.rotation = pos.transform.rotation;
                 
+                GameManager.instance.SetCurrentNPC(this.gameObject);
+                
                 npcSpeechBubble.SetActive(true);
                 GameManager.instance.playerDialogue.SetActive(true);
+                Debug.Log($"{gameObject.name} reached desk");
+                
+                yield return new WaitUntil(() => npcData != null);
+                
                 LoadNPCDialogue();
                 break;
             }
@@ -125,8 +131,17 @@ public class NpcMovementRework : MonoBehaviour
 
     public void LoadNPCDialogue()
     {
-        Debug.Log("Loading NPC Dialogue");
-        Debug.Log(npcData.initialStatement);
+        if (GameManager.instance.currentNPC != this.gameObject)
+        {
+            return;
+        }
+
+        if (npcData == null)
+        {
+            Debug.LogError($"NPC Data is null for {gameObject.name}");
+            return;
+        }
+
         initialStatementText.text = npcData.initialStatement;
         
         GameManager.instance.playerQuestionOneText.text = npcData.question1;

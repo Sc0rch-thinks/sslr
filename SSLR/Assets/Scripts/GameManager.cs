@@ -23,16 +23,14 @@ public class GameManager : MonoBehaviour
     public bool dayEnded = false;
     public bool shiftStarted;
 
+    /// <summary>
+    /// NPC in front of desk
+    /// </summary>
     public GameObject currentNPC;
-    
-    /*[Header("Walk Points (FOR DEBUGGING")]
-    public Transform[] frontWalkPoints;
-    public Transform[] leftWalkPoints;
-    public Transform[] rightWalkPoints;
-    
-    public GameObject leftWalkPointSet;
-    public GameObject rightWalkPointSet;*/
-    
+
+    ///<summary>
+    /// References for player-npc dialogue
+    /// </summary>    
     [Header("NPC Dialogue")]
     public TextMeshProUGUI playerQuestionOneText;
     public TextMeshProUGUI playerQuestionTwoText;
@@ -58,5 +56,14 @@ public class GameManager : MonoBehaviour
         }
         
         playerDialogue.SetActive(false);
-    }   
+    }
+
+    /// <summary>
+    /// Setting NPC in front of desk as current
+    /// </summary>
+    /// <param name="npc"></param>
+    public void SetCurrentNPC(GameObject npc)
+    {
+        currentNPC = npc;
+    }
 }

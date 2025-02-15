@@ -119,8 +119,21 @@ public class Backend : MonoBehaviour
                 {
                     DataSnapshot snapshot = task.Result;
                     string json = snapshot.GetRawJsonValue();
-                    data = JsonUtility.FromJson<NpcData>(json);
-                    target.npcData = data;
+
+                    if (!string.IsNullOrEmpty(json))
+                    {
+                        target.npcData = JsonUtility.FromJson<NpcData>(json);
+                        Debug.Log($"NPC Loaded: {target.npcData.initialStatement}");
+
+                        if (GameManager.instance.currentNPC == target.gameObject)
+                        {
+                            target.LoadNPCDialogue();
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError("Firebase returned empty");
+                    }
                 }
 
                 ;
