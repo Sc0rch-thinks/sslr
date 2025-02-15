@@ -15,6 +15,6 @@ public class Users : BaseModel
     [Column()] public int score { get; set; }
     [Column()] public string displayName { get; set; }
     [Column()] public int daysPlayed { get; set; }
-    [Column()] public int customersHelped { get; set; }
+    [Column()] public int customersHelpedCorrectly { get; set; }
     [Column()] public int customersHelpedWrongly { get; set; }
 }
