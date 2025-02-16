@@ -80,7 +80,7 @@ public class NpcMovementRework : MonoBehaviour
                 GameManager.instance.SetCurrentNPC(this.gameObject);
                 
                 npcSpeechBubble.SetActive(true);
-                GameManager.instance.playerDialogue.SetActive(true);
+                PlayerDialogueInteraction.instance.playerDialogue.SetActive(true);
                 
                 yield return new WaitUntil(() => npcData != null);
 
@@ -148,14 +148,10 @@ public class NpcMovementRework : MonoBehaviour
         npcWelcomeText.text = "Hello";
         initialStatementText.text = npcData.initialStatement;
         
-        GameManager.instance.playerQuestionOneText.text = npcData.question1;
-        GameManager.instance.playerQuestionTwoText.text = npcData.question2;
-        GameManager.instance.playerQuestionThreeText.text = npcData.question3;
-        
         npcAnswerOneText.text = npcData.answer1;
         npcAnswerTwoText.text = npcData.answer2;
         npcAnswerThreeText.text = npcData.answer3;
-
-        GameManager.instance.playerResponse.text = npcData.response3;
+        
+        PlayerDialogueInteraction.instance.SetPlayerQuestions(npcData.question1, npcData.question2, npcData.question3);
     }
 }

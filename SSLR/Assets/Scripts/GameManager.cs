@@ -28,21 +28,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public GameObject currentNPC;
     public string currentNPCCorrectDepartment;
-
-    public bool buttonsPressedBefore;
-
-    ///<summary>
-    /// References for player-npc dialogue
-    /// </summary>    
-    [Header("NPC Dialogue")] 
-    public TextMeshProUGUI playerQuestionOneText;
-    public TextMeshProUGUI playerQuestionTwoText;
-    public TextMeshProUGUI playerQuestionThreeText;
-
-    public TextMeshProUGUI playerResponse;
-
-    public GameObject playerDialogue;
-
+    
     /// <summary>
     /// Do Not Destroy on Load
     /// </summary>
@@ -57,9 +43,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
-        playerDialogue.SetActive(false);
-    }
+   }
 
     /// <summary>
     /// Setting NPC in front of desk as current
