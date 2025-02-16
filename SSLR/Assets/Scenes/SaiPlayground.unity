@@ -96,8 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 835192407}
+  m_LightingDataAsset: {fileID: 112000000, guid: 45a4841d70110eb4a84aa39e21c490fa, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: a007e26926fac7048964b2ab97b45972, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16727,6 +16727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_office (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8368442571384999398, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9181008415874914140, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
       propertyPath: m_LocalScale.x
       value: 12.295365
@@ -16741,7 +16745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9181008415874914140, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.28
+      value: -2.338
       objectReference: {fileID: 0}
     - target: {fileID: 9181008415874914140, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20057,6 +20061,10 @@ PrefabInstance:
     - target: {fileID: 8368442571384999398, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
       propertyPath: m_Name
       value: wall_office (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368442571384999398, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9181008415874914140, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
       propertyPath: m_LocalScale.x
@@ -24407,9 +24415,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 932833873}
     m_Modifications:
+    - target: {fileID: 1244832068696127609, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101864073129862429, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860532534925168104, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458533690051223233, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828365044878617327, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7238943306124097943, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
       propertyPath: m_Name
       value: 3dpea.com_Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238943306124097943, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8015901809606894381, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
       propertyPath: m_LocalScale.x
@@ -25813,70 +25845,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 341383715448738126, guid: a6e5ff8612389eb43a19a4dd735fa6e0, type: 3}
   m_PrefabInstance: {fileID: 832969671}
   m_PrefabAsset: {fileID: 0}
---- !u!850595691 &835192407
-LightingSettings:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 6
-  m_GIWorkflowMode: 1
-  m_EnableBakedLightmaps: 1
-  m_EnableRealtimeLightmaps: 0
-  m_RealtimeEnvironmentLighting: 1
-  m_BounceScale: 1
-  m_AlbedoBoost: 1
-  m_IndirectOutputScale: 1
-  m_UsingShadowmask: 1
-  m_BakeBackend: 1
-  m_LightmapMaxSize: 1024
-  m_BakeResolution: 40
-  m_Padding: 2
-  m_LightmapCompression: 3
-  m_AO: 0
-  m_AOMaxDistance: 1
-  m_CompAOExponent: 1
-  m_CompAOExponentDirect: 0
-  m_ExtractAO: 0
-  m_MixedBakeMode: 2
-  m_LightmapsBakeMode: 1
-  m_FilterMode: 1
-  m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
-  m_ExportTrainingData: 0
-  m_TrainingDataDestination: TrainingData
-  m_RealtimeResolution: 2
-  m_ForceWhiteAlbedo: 0
-  m_ForceUpdates: 0
-  m_FinalGather: 0
-  m_FinalGatherRayCount: 256
-  m_FinalGatherFiltering: 1
-  m_PVRCulling: 1
-  m_PVRSampling: 1
-  m_PVRDirectSampleCount: 32
-  m_PVRSampleCount: 512
-  m_PVREnvironmentSampleCount: 256
-  m_PVREnvironmentReferencePointCount: 2048
-  m_LightProbeSampleCountMultiplier: 4
-  m_PVRBounces: 2
-  m_PVRMinBounces: 2
-  m_PVREnvironmentImportanceSampling: 1
-  m_PVRFilteringMode: 1
-  m_PVRDenoiserTypeDirect: 1
-  m_PVRDenoiserTypeIndirect: 1
-  m_PVRDenoiserTypeAO: 1
-  m_PVRFilterTypeDirect: 0
-  m_PVRFilterTypeIndirect: 0
-  m_PVRFilterTypeAO: 0
-  m_PVRFilteringGaussRadiusDirect: 1
-  m_PVRFilteringGaussRadiusIndirect: 5
-  m_PVRFilteringGaussRadiusAO: 2
-  m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-  m_PVRFilteringAtrousPositionSigmaIndirect: 2
-  m_PVRFilteringAtrousPositionSigmaAO: 1
-  m_PVRTiledBaking: 0
-  m_NumRaysToShootPerTexel: -1
-  m_RespectSceneVisibilityWhenBakingGI: 0
 --- !u!1001 &844797524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27469,9 +27437,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 932833873}
     m_Modifications:
+    - target: {fileID: 1244832068696127609, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101864073129862429, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860532534925168104, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458533690051223233, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828365044878617327, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7238943306124097943, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
       propertyPath: m_Name
       value: 3dpea.com_Door (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238943306124097943, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8015901809606894381, guid: b56d0d6f1af266d40a4f4268408f6db2, type: 3}
       propertyPath: m_LocalScale.x
@@ -33864,6 +33856,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_office (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8368442571384999398, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9181008415874914140, guid: 254981ad9b225cd40b52577d8b2b9301, type: 3}
       propertyPath: m_LocalScale.x
       value: 17.890785
@@ -39624,6 +39620,14 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 785240573026610109, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RendererIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 785240573026610109, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -43472,6 +43476,55 @@ Transform:
   - {fileID: 463834249}
   - {fileID: 1486233368}
   - {fileID: 1167824562}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1794956875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1794956877}
+  - component: {fileID: 1794956876}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1794956876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794956875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 3b221f398ea35b8458c7d181ab128d13, type: 2}
+--- !u!4 &1794956877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794956875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.063538, y: -5.0923367, z: 3.0519104}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1800213873
@@ -49984,6 +50037,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 424914618208014756, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2772893596362460922, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137158838023755618, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709646891258951638, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3724260340657694007, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 731.06714
@@ -50024,9 +50093,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5085838762956663886, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5793682807226071215, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
       propertyPath: m_Name
       value: Signboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793682807226071215, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172703197506431168, guid: ae102ddf369a56d4b8834536a6b7d4a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51094,3 +51175,4 @@ SceneRoots:
   - {fileID: 1499848285896405239}
   - {fileID: 1816660727526038086}
   - {fileID: 4659621534868253087}
+  - {fileID: 1794956877}
