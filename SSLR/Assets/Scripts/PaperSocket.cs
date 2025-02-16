@@ -42,26 +42,22 @@ public class PaperSocket : MonoBehaviour
         {
             if (paperName == "Spawnable_Doc")
             {
-                Debug.Log("Document given");
-                Destroy(paperObject);
-            }
+                StampDocument stampDoc = paperObject.GetComponent<StampDocument>();
 
-            if (paperName == "NPC_Doc")
-            {
-                return;
-            }
-        }
-        else if (socketName == "Paper Socket")
-        {
-            if (paperName == "Spawnable_Doc")
-            {
-                return;
-            }
-
-            if (paperName == "NPC_Doc")
-            {
-                Debug.Log("Document submitted");
-                Destroy(paperObject);
+                if (stampDoc != null)
+                {
+                    if (stampDoc.isStamped && stampDoc.isSigned)
+                    {
+                        Debug.Log("Document given");
+                        PlayerDialogueInteraction.instance.takeDocumentsTick.SetActive(true);
+                        PlayerDialogueInteraction.instance.giveDocumentsTick.SetActive(true);
+                        Destroy(paperObject);
+                    }
+                    else
+                    {
+                        Debug.Log("Either not stamped or not signed");
+                    }
+                }
             }
         }
     }
@@ -71,10 +67,6 @@ public class PaperSocket : MonoBehaviour
         if (socketName == "Paper Socket_NPC")
         {
             Debug.Log("Paper taken from NPC");
-        }
-        else if (socketName == "Paper Socket")
-        {
-            Debug.Log("Paper removed from table");
         }
     }
 }
