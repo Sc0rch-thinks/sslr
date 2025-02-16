@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Solace Of Service</title>
+		<link rel="stylesheet" href="main.css" />
+		<link rel="icon" type="image/x-icon" href="./img/SOS_Logo_WBG.png" />
+		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	</head>
+	<body class="h-screen w-screen main-colour">
+		<header class="flex w-full h-20 secondary-colour fixed top-0 left-0 right-0">
+			<img src="./img/SOS_Logo_WBG.png" alt="product logo" class="p-1 ml-10" />
+			<nav class="w-full flex justify-around">
+				<a href="./index.html" class="px-4 text-justify h-fit w-fit self-center"
+					><h1>Home</h1></a
+				>
+				<a href="./about.html" class="px-4 text-justify h-fit w-fit self-center"
+					><h1>About SSLR</h1></a
+				>
+				<a href="#" class="px-4 text-justify h-fit w-fit self-center"><h1>Profile</h1></a>
+			</nav>
+		</header>
+		<div class="h-20"></div>
+		<dialog
+			id="signInDialog"
+			class="section-colour px-5 w-[40vw] absolute top-[50%] left-[50%] translate-[-50%] backdrop:opacity-20 backdrop:bg-zinc800"
+		>
+			<b>Login</b>
+			<form>
+				<label for="email">Email:</label><br />
+				<input
+					name="email"
+					id="emailSignIn"
+					class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+				/><br />
+				<label for="password">Password:</label><br />
+				<input
+					name="password"
+					id="passwordSignIn"
+					class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+				/><br />
+				<input
+					type="button"
+					id="SignInSubmit"
+					value="Sign In"
+					class="cursor-pointer px-1 border-2 my-2 main-colour border-black rounded-md hover:bg-slate-200"
+				/><br />
+				<button
+					id="signinToSignup"
+					type="button"
+					class="cursor-pointer px-1 my-2 rounded-md"
+				>
+					Dont have an account? Click here to create one.
+				</button>
+			</form>
+		</dialog>
+		<dialog
+			id="signUpDialog"
+			class="section-colour px-5 w-[40vw] absolute top-[50%] left-[50%] translate-[-50%] backdrop:opacity-20 backdrop:bg-zinc800"
+		>
+			<b>Sign Up</b>
+			<form>
+				<label for="username">Username:</label><br />
+				<input
+					type="text"
+					id="usernameSignUp"
+					name="username"
+					class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+				/><br />
+				<label for="email">Email:</label><br />
+				<input
+					name="email"
+					id="emailSignUp"
+					class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+				/><br />
+				<label for="password">Password:</label><br />
+				<input
+					name="password"
+					id="passwordSignUp"
+					class="cursor-text border-2 w-3/4 rounded-md bg-slate-200"
+				/><br />
+				<label for="profile"> Profile Picture</label><br />
+				<input
+					type="file"
+					name="profile"
+					id="profileSignUp"
+					accept="image/*"
+					class="file:rounded-full file:border file:border-black file:px-2 file:mr-4 file:font-semibold file:bg-[#c6cdd9]"
+				/><br />
+				<input
+					type="button"
+					id="SignUpSubmit"
+					value="Sign Up"
+					class="cursor-pointer px-1 border-2 my-2 main-colour border-black rounded-md hover:bg-slate-200"
+				/>
+
+				<br />
+				<button
+					id="signUpToSignIn"
+					type="button"
+					class="cursor-pointer px-1 my-2 rounded-md"
+				>
+					Do you got an account? Click here to Login
+				</button>
+			</form>
+		</dialog>
+		<section class="h-fit w-full py-10 px-[15vw]">
+			<b>Profile</b>
+			<img src="" class="" alt="Profile picture" />
+			<h1><b>Name:</b></h1>
+			<h1><b>Score:</b></h1>
+			<h1><b>Days Played:</b></h1>
+			<h1><b>Customers Helped Correct:</b></h1>
+			<h1><b>Customers Helped Wrongly:</b></h1>
+			<h1><b>Accuracy:</b></h1>
+		</section>
+
+		<script  src="./profile.js"></script>
+	</body>
+</html>

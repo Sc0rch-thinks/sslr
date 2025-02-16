@@ -1,7 +1,7 @@
-/*! tailwindcss v4.0.0 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.0.6 | MIT License | https://tailwindcss.com */
 @layer theme, base, components, utilities;
 @layer theme {
-  :root {
+  :root, :host {
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -551,6 +551,9 @@
   .ml-10 {
     margin-left: calc(var(--spacing) * 10);
   }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
   }
@@ -671,6 +674,9 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
   .px-\[15vw\] {
     padding-inline: 15vw;
   }
@@ -710,9 +716,49 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .backdrop\:opacity-75 {
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .file\:mr-4 {
+    &::file-selector-button {
+      margin-right: calc(var(--spacing) * 4);
+    }
+  }
+  .file\:rounded-full {
+    &::file-selector-button {
+      border-radius: calc(infinity * 1px);
+    }
+  }
+  .file\:border {
+    &::file-selector-button {
+      border-style: var(--tw-border-style);
+      border-width: 1px;
+    }
+  }
+  .file\:border-black {
+    &::file-selector-button {
+      border-color: var(--color-black);
+    }
+  }
+  .file\:bg-\[\#c6cdd9\] {
+    &::file-selector-button {
+      background-color: #c6cdd9;
+    }
+  }
+  .file\:px-2 {
+    &::file-selector-button {
+      padding-inline: calc(var(--spacing) * 2);
+    }
+  }
+  .file\:font-semibold {
+    &::file-selector-button {
+      --tw-font-weight: var(--font-weight-semibold);
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+  .backdrop\:opacity-20 {
     &::backdrop {
-      opacity: 75%;
+      opacity: 20%;
     }
   }
   .hover\:bg-slate-200 {
