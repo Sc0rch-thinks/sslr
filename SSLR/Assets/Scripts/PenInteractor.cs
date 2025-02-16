@@ -1,5 +1,5 @@
 /*
-* Author: Shannon Goh 
+* Author: Shannon Goh and Livinia Poo
 * Date: 03/02/2025
 * Description: Pen Interactor Handle script
 */
@@ -26,7 +26,7 @@ public class PenInteractor : MonoBehaviour
                 {
                     if(!stampDocScript.isSigned)
                     {
-                        stampDocScript.SignComCare();
+                        PlayerDialogueInteraction.instance.servicesPanel.SetActive(true);
                     }                
                 }
                 else

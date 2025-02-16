@@ -22,6 +22,7 @@ public class PlayerDialogueInteraction : MonoBehaviour
     public GameObject welcomeButton;
     public GameObject questionPanel;
     public GameObject responsePanel;
+    public GameObject servicesPanel;
     
     public TextMeshProUGUI playerQuestionOneText;
     public TextMeshProUGUI playerQuestionTwoText;
@@ -38,6 +39,15 @@ public class PlayerDialogueInteraction : MonoBehaviour
     public GameObject serviceTick;
     public GameObject takeDocumentsTick;
     public GameObject giveDocumentsTick;
+
+    [Header("Services")] 
+    public GameObject comcareServiceButton;
+    public GameObject fscServiceButton;
+    public GameObject peersServiceButton;
+    public GameObject transitionalSheltersServiceButton;
+    public GameObject cpsServiceButton;
+    public GameObject childrenYoungHomeServiceButton;
+    public GameObject sgEnableServiceButton;
 
     void Awake()
     {

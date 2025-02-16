@@ -78,6 +78,8 @@ public class StampDocument : MonoBehaviour
         comcareSignature.SetActive(true);
         isSigned = true;
         assignedDepartment = "ComCare";
+        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
     }
     
     public void SignFSC()
@@ -85,6 +87,8 @@ public class StampDocument : MonoBehaviour
         fscSignature.SetActive(true);
         isSigned = true;
         assignedDepartment = "Family Service Centres";
+        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
     }
     
     public void SignPEERS()
@@ -92,6 +96,8 @@ public class StampDocument : MonoBehaviour
         peersSignature.SetActive(true);
         isSigned = true;
         assignedDepartment = "PEERS";
+        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
     }
     
     public void SignTransitionalShelters()
@@ -99,6 +105,8 @@ public class StampDocument : MonoBehaviour
         transitionalShelterSignature.SetActive(true);
         isSigned = true;
         assignedDepartment = "Transitional Shelters";
+        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
     }
     
     public void SignCPS()
@@ -106,6 +114,8 @@ public class StampDocument : MonoBehaviour
         cpsSignature.SetActive(true);
         isSigned = true;
         assignedDepartment = "CPS";
+        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
     }
     
     public void SignChildrenYoungHome()
@@ -113,6 +123,8 @@ public class StampDocument : MonoBehaviour
         childrenYoungHomeSignature.SetActive(true);
         isSigned = true;
         assignedDepartment = "Children and Young Persons Homes";
+        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
     }
 
     public void SignSGEnable()
@@ -120,5 +132,7 @@ public class StampDocument : MonoBehaviour
         sgEnableSignature.SetActive(true);
         isSigned = true;
         assignedDepartment = "SG Enable";
+        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
     }
 }
