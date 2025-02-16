@@ -1,18 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StampDocument : MonoBehaviour
 {
-    [Header("Stamps")] 
-    [SerializeField] private GameObject financialStamp;
+    [Header("Stamps")] [SerializeField] private GameObject financialStamp;
     [SerializeField] private GameObject residentialStamp;
     [SerializeField] private GameObject dvStamp;
     [SerializeField] private GameObject disabilitiesStamp;
     [SerializeField] private GameObject signature;
-    
-    [Header("Signatures")] 
-    [SerializeField] private GameObject comcareSignature;
+
+    [Header("Signatures")] [SerializeField]
+    private GameObject comcareSignature;
+
     [SerializeField] private GameObject fscSignature;
     [SerializeField] private GameObject peersSignature;
     [SerializeField] private GameObject transitionalShelterSignature;
@@ -24,7 +25,10 @@ public class StampDocument : MonoBehaviour
     public bool isSigned;
     public string assignedDepartment;
     public string assignedService;
-    
+    private string CheckFinalDepartment()
+    {
+        return $"{assignedDepartment}-{assignedService}";
+    } 
     void Start()
     {
         financialStamp.SetActive(false);
@@ -32,7 +36,7 @@ public class StampDocument : MonoBehaviour
         dvStamp.SetActive(false);
         disabilitiesStamp.SetActive(false);
         signature.SetActive(false);
-        
+
         comcareSignature.SetActive(false);
         fscSignature.SetActive(false);
         peersSignature.SetActive(false);
@@ -40,32 +44,32 @@ public class StampDocument : MonoBehaviour
         cpsSignature.SetActive(false);
         childrenYoungHomeSignature.SetActive(false);
         sgEnableSignature.SetActive(false);
-        
+
         isSigned = false;
         isStamped = false;
     }
-    
+
     public void StampFinancial()
     {
         financialStamp.SetActive(true);
         isStamped = true;
         assignedDepartment = "Financial";
     }
-    
+
     public void StampResidential()
     {
         residentialStamp.SetActive(true);
         isStamped = true;
         assignedDepartment = "Residential";
     }
-    
+
     public void StampDV()
     {
         dvStamp.SetActive(true);
         isStamped = true;
         assignedDepartment = "Domestic Violence";
     }
-    
+
     public void StampDisabilities()
     {
         disabilitiesStamp.SetActive(true);
@@ -73,66 +77,63 @@ public class StampDocument : MonoBehaviour
         assignedDepartment = "Disabilities";
     }
 
-    public void SignComCare()
+    public void Sign(string service)
     {
-        comcareSignature.SetActive(true);
-        isSigned = true;
-        assignedDepartment = "ComCare";
-        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
-        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
-    }
-    
-    public void SignFSC()
-    {
-        fscSignature.SetActive(true);
-        isSigned = true;
-        assignedDepartment = "Family Service Centres";
-        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
-        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
-    }
-    
-    public void SignPEERS()
-    {
-        peersSignature.SetActive(true);
-        isSigned = true;
-        assignedDepartment = "PEERS";
-        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
-        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
-    }
-    
-    public void SignTransitionalShelters()
-    {
-        transitionalShelterSignature.SetActive(true);
-        isSigned = true;
-        assignedDepartment = "Transitional Shelters";
-        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
-        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
-    }
-    
-    public void SignCPS()
-    {
-        cpsSignature.SetActive(true);
-        isSigned = true;
-        assignedDepartment = "CPS";
-        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
-        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
-    }
-    
-    public void SignChildrenYoungHome()
-    {
-        childrenYoungHomeSignature.SetActive(true);
-        isSigned = true;
-        assignedDepartment = "Children and Young Persons Homes";
-        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
-        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
+        switch (service)
+        {
+            case "ComCare":
+                comcareSignature.SetActive(true);
+                isSigned = true;
+                assignedDepartment = "ComCare";
+                PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+                PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
+                break;
+            case "FSC":
+                fscSignature.SetActive(true);
+                isSigned = true;
+                assignedDepartment = "Family Service Centres";
+                PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+                PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
+                break;
+            case "PEERS":
+                peersSignature.SetActive(true);
+                isSigned = true;
+                assignedDepartment = "PEERS";
+                PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+                PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
+                break;
+            case "Transitional Shelters":
+                transitionalShelterSignature.SetActive(true);
+                isSigned = true;
+                assignedDepartment = "Transitional Shelters";
+                PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+                PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
+                break;
+            case "CPS":
+                cpsSignature.SetActive(true);
+                isSigned = true;
+                assignedDepartment = "CPS";
+                PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+                PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
+                break;
+            case "SG Enable":
+                sgEnableSignature.SetActive(true);
+                isSigned = true;
+                assignedDepartment = "SG Enable";
+                PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
+                PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
+                break;
+                
+        }
     }
 
-    public void SignSGEnable()
+
+    private void OnTriggerEnter(Collider other)
     {
-        sgEnableSignature.SetActive(true);
-        isSigned = true;
-        assignedDepartment = "SG Enable";
-        PlayerDialogueInteraction.instance.servicesPanel.SetActive(false);
-        PlayerDialogueInteraction.instance.questionPanel.SetActive(true);
+        if (other.gameObject.CompareTag("Pen"))
+        {
+            PlayerDialogueInteraction.instance.servicesPanel.SetActive(true);
+            PlayerDialogueInteraction.instance.currentDocument = this;
+        }
     }
 }

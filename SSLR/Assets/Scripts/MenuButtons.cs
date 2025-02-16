@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Supabase.Gotrue;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
     /// <summary>
@@ -16,7 +16,8 @@ public class MenuButtons : MonoBehaviour
     public TextMeshProUGUI daysPlayedText;
     public TextMeshProUGUI peopleHelpedText;
     public TextMeshProUGUI accuracyText;
-
+    
+    public Image profilePicture;
     /// <summary>
     /// Calling backend to log player in
     /// </summary>
@@ -64,5 +65,13 @@ public class MenuButtons : MonoBehaviour
             Debug.LogError("User data is null. UI not updated");
         }
     }
-
+    public void Logout()
+    {
+        Backend.instance.SignOut();
+    }
+    
+    public void GetProfilePicture()
+    {
+        // profilePicture.sprite = Backend.instance.GetProfilePicture("https://fchobpauqasfebohuuam.supabase.co/storage/v1/object/public/Avatar//1739708594780-6156448458035283230_120.jpg");
+    }
 }

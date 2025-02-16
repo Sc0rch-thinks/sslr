@@ -8,6 +8,7 @@ TagManager:
   - NPC
   - Paper
   - PlayerHand
+  - Pen
   layers:
   - Default
   - TransparentFX

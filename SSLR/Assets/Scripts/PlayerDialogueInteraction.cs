@@ -46,8 +46,8 @@ public class PlayerDialogueInteraction : MonoBehaviour
     public GameObject peersServiceButton;
     public GameObject transitionalSheltersServiceButton;
     public GameObject cpsServiceButton;
-    public GameObject childrenYoungHomeServiceButton;
     public GameObject sgEnableServiceButton;
+    public StampDocument currentDocument;
 
     void Awake()
     {
@@ -162,5 +162,10 @@ public class PlayerDialogueInteraction : MonoBehaviour
         GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerTwoText.gameObject.SetActive(false);
         GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerThreeText.gameObject.SetActive(false);
         GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcClarifiedResponse.gameObject.SetActive(true);
+    }
+    public void OnServiceSelected(string service)
+    {
+        servicesPanel.SetActive(false);
+        currentDocument.Sign(service);
     }
 }

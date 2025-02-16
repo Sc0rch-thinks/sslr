@@ -12,6 +12,7 @@ public class Test : BaseModel
 public class Users : BaseModel
 {
     [Column()] public string uid { get; set; }
+    [Column()] public string profilePictureUrl { get; set; }
     [Column()] public int score { get; set; }
     [Column()] public string displayName { get; set; }
     [Column()] public int daysPlayed { get; set; }

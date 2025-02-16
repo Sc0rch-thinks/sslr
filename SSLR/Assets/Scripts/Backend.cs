@@ -1,10 +1,13 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using Supabase;
 using Supabase.Gotrue;
 using Client = Supabase.Client;
-using Firebase;
 using Firebase.Database;
 using Firebase.Extensions;
+using UnityEngine.Networking;
+using System;
+using UnityEngine.UI;
 
 public class Backend : MonoBehaviour
 {
@@ -13,11 +16,11 @@ public class Backend : MonoBehaviour
     [SerializeField] private string url;
     [SerializeField] private string anonKey;
     public Client Client;
-  
+
     public Session Session;
     public Users User;
 
-    
+    public Image profilePicture;
     private async void Start()
     {
         var options = new SupabaseOptions
@@ -38,39 +41,44 @@ public class Backend : MonoBehaviour
                 Debug.Log("Supabase Initialized");
             }
         });
+        
     }
 
-    public async void SendData(string uid, int score, string displayName, int daysPlayed, int customersHelpedCorrectly,
+    public async void SignOut()
+    {
+        User = null;
+        Session = null;
+        await Client.Auth.SignOut();
+    }
+
+    public async void SendData(string uid, string profilePictureUrl, int score, string displayName, int daysPlayed,
+        int customersHelpedCorrectly,
         int customersHelpedWrongly)
     {
         var user = new Users
         {
             uid = uid,
+            profilePictureUrl = profilePictureUrl,
             score = score,
             displayName = displayName,
             daysPlayed = daysPlayed,
             customersHelpedCorrectly = customersHelpedCorrectly,
             customersHelpedWrongly = customersHelpedWrongly,
         };
-        await Client.From<Users>().Insert(user).ContinueWith(SendTask =>
-        {
-            if (!SendTask.IsCompletedSuccessfully)
+        await Client.From<Users>().OnConflict(x => x.uid)
+            .Upsert(user).ContinueWith(SendTask =>
             {
-                Debug.LogError(SendTask.Exception);
-            }
-            else
-            {
-                Debug.Log("Data Sent Sucessfully");
-            }
-        });
+                if (!SendTask.IsCompletedSuccessfully)
+                {
+                    Debug.LogError(SendTask.Exception);
+                }
+                else
+                {
+                    Debug.Log("Data Sent Sucessfully");
+                }
+            });
     }
 
-    public async void SignUp(string email, string password, string displayName)
-    {
-        Session = await Client.Auth.SignUp(email, password);
-        Debug.Log(Session.User.Id);
-        SendData(Session.User.Id, 0, displayName, 0, 0, 0);
-    }
 
     public async void SignIn(string email, string password)
     {
@@ -87,7 +95,7 @@ public class Backend : MonoBehaviour
         if (User != null)
         {
             Debug.Log($"User: " + User.displayName);
-            
+
             MenuButtons profilePage = FindObjectOfType<MenuButtons>();
             if (profilePage != null)
             {
@@ -108,7 +116,8 @@ public class Backend : MonoBehaviour
     public void FirebaseGet(NpcMovementRework target)
     {
         NpcData data = new NpcData();
-        FirebaseDatabase.DefaultInstance.RootReference.Child("scenarios").Child("1").GetValueAsync()
+        FirebaseDatabase.DefaultInstance.RootReference.Child("scenarios").Child(UnityEngine.Random.Range(1, 8).ToString())
+            .GetValueAsync()
             .ContinueWithOnMainThread(task =>
             {
                 if (task.IsFaulted)
@@ -140,6 +149,59 @@ public class Backend : MonoBehaviour
 
                 ;
             });
+    }
+
+    private async void GetProfile(string url, Image targetRenderer)
+    {
+        try
+        {
+            Texture2D texture = await GetTextureFromURL(url);
+
+            if (texture != null)
+            {
+                if (targetRenderer != null)
+                {
+                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+                    targetRenderer.sprite = sprite;
+                    Debug.Log("Texture applied successfully.");
+                }
+                else
+                {
+                    Debug.LogError("Target Renderer is not assigned.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Failed to load texture.");
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error downloading texture: {e.Message}");
+        }
+    }
+
+    private async Task<Texture2D> GetTextureFromURL(string url)
+    {
+        using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
+        {
+            var asyncOperation = request.SendWebRequest();
+
+            while (!asyncOperation.isDone)
+            {
+                await Task.Yield(); // Yield until the operation is complete
+            }
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                return DownloadHandlerTexture.GetContent(request);
+            }
+            else
+            {
+                Debug.LogError($"Error in UnityWebRequest: {request.error}");
+                return null;
+            }
+        }
     }
 
     private void Awake()
