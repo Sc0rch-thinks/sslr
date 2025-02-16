@@ -26,8 +26,9 @@ public class PenInteractor : MonoBehaviour
                 {
                     if(!stampDocScript.isSigned)
                     {
-                        stampDocScript.SignDocument();
-                    }                }
+                        stampDocScript.SignComCare();
+                    }                
+                }
                 else
                 {
                     Debug.LogError("Paper doesn't have StampDocScript");
