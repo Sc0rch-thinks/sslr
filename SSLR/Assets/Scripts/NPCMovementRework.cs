@@ -29,6 +29,7 @@ public class NpcMovementRework : MonoBehaviour
     public TextMeshProUGUI npcAnswerThreeText;
 
     [SerializeField] private GameObject npcSpeechBubble;
+    [SerializeField] private GameObject npcAnswerPanel;
     
     public NpcData npcData;
     public string correctService;
@@ -53,6 +54,7 @@ public class NpcMovementRework : MonoBehaviour
         Backend.instance.FirebaseGet(this);
         
         npcSpeechBubble.SetActive(false);
+        npcAnswerPanel.SetActive(false);
         StartCoroutine(SitDown());
     }
 
@@ -80,6 +82,7 @@ public class NpcMovementRework : MonoBehaviour
                 GameManager.instance.SetCurrentNPC(this.gameObject);
                 
                 npcSpeechBubble.SetActive(true);
+                npcAnswerPanel.SetActive(true);
                 PlayerDialogueInteraction.instance.playerDialogue.SetActive(true);
                 
                 yield return new WaitUntil(() => npcData != null);
