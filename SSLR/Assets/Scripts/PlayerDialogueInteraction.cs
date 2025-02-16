@@ -83,6 +83,11 @@ public class PlayerDialogueInteraction : MonoBehaviour
         playerQuestionThreeText.text = q3;
     }
 
+    public void SetPlayerResposne(string response)
+    {
+        playerResponseText.text = response;
+    }
+
     public void WelcomePressed()
     {
         questionPanel.SetActive(true);
@@ -100,6 +105,7 @@ public class PlayerDialogueInteraction : MonoBehaviour
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerOneText.gameObject.SetActive(true);
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerTwoText.gameObject.SetActive(false);
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerThreeText.gameObject.SetActive(false);
+            GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcClarifiedResponse.gameObject.SetActive(false);
             
             question1Asked = true;
         }
@@ -108,6 +114,7 @@ public class PlayerDialogueInteraction : MonoBehaviour
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerOneText.gameObject.SetActive(false);
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerTwoText.gameObject.SetActive(true);
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerThreeText.gameObject.SetActive(false);
+            GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcClarifiedResponse.gameObject.SetActive(false);
             
             question2Asked = true;
         }
@@ -116,8 +123,12 @@ public class PlayerDialogueInteraction : MonoBehaviour
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerOneText.gameObject.SetActive(false);
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerTwoText.gameObject.SetActive(false);
             GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerThreeText.gameObject.SetActive(true);
+            GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcClarifiedResponse.gameObject.SetActive(false);
             
             question3Asked = true;
+            
+            questionPanel.SetActive(false);
+            responsePanel.SetActive(true);
         }
 
         CheckAllQuestionsAsked();
@@ -129,5 +140,17 @@ public class PlayerDialogueInteraction : MonoBehaviour
         {
             situationTick.SetActive(true);
         }
+    }
+
+    public void OnResponseSelected()
+    {
+        questionPanel.SetActive(true);
+        responsePanel.SetActive(false);
+        serviceTick.SetActive(true);
+        
+        GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerOneText.gameObject.SetActive(false);
+        GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerTwoText.gameObject.SetActive(false);
+        GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerThreeText.gameObject.SetActive(false);
+        GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcClarifiedResponse.gameObject.SetActive(true);
     }
 }

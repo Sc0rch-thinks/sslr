@@ -27,6 +27,7 @@ public class NpcMovementRework : MonoBehaviour
     public TextMeshProUGUI npcAnswerOneText;
     public TextMeshProUGUI npcAnswerTwoText;
     public TextMeshProUGUI npcAnswerThreeText;
+    public TextMeshProUGUI npcClarifiedResponse;
 
     [SerializeField] private GameObject npcSpeechBubble;
     [SerializeField] private GameObject npcAnswerPanel;
@@ -154,7 +155,10 @@ public class NpcMovementRework : MonoBehaviour
         npcAnswerOneText.text = npcData.answer1;
         npcAnswerTwoText.text = npcData.answer2;
         npcAnswerThreeText.text = npcData.answer3;
+
+        npcClarifiedResponse.text = "I see...";
         
         PlayerDialogueInteraction.instance.SetPlayerQuestions(npcData.question1, npcData.question2, npcData.question3);
+        PlayerDialogueInteraction.instance.SetPlayerResposne(npcData.response3);
     }
 }
