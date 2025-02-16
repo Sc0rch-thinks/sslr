@@ -5535,7 +5535,6 @@ GameObject:
   - component: {fileID: 520849220}
   - component: {fileID: 520849219}
   - component: {fileID: 520849216}
-  - component: {fileID: 520849217}
   - component: {fileID: 520849218}
   m_Layer: 0
   m_Name: Game Manager
@@ -5575,18 +5574,6 @@ MonoBehaviour:
   shiftStarted: 0
   currentNPC: {fileID: 0}
   currentNPCCorrectDepartment: 
---- !u!114 &520849217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520849214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c6fa011a2b389049b558ccdf6b38c38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &520849218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6764,7 +6751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bab791ccf13189449b82b8f0b70b269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiftDuration: 60
+  shiftDuration: 20
   npcSpawnArea: {fileID: 1126609776}
 --- !u!1 &741702766
 GameObject:

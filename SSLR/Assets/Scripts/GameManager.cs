@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     public void SetCurrentNPC(GameObject npc)
     {
         currentNPC = npc;
-        
+        NpcManager.instance.currentNpcs.Remove(npc);
         NpcMovementRework npcScript = npc.GetComponent<NpcMovementRework>();
         if (npcScript != null)
         {

@@ -70,6 +70,7 @@ public class ShiftManager : MonoBehaviour
         remainingTime = shiftDuration;
         gm.shiftStarted = false;
         dayManager.doneAShift = true;
+        NpcManager.instance.EndDay();
     }
 
     public void AllowShiftStart()

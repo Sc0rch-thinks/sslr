@@ -136,6 +136,14 @@ public class NpcManager : MonoBehaviour
         isSpawning = false;
     }
     
+    public void EndDay()
+    {
+        foreach (var npc in currentNpcs)
+        {
+            npc.GetComponent<NpcMovementRework>().Despawn(true);
+        }
+    }
+    
     [Serializable]
     public struct Seat
     {
