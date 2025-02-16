@@ -3737,7 +3737,7 @@ MonoBehaviour:
   daysPlayedText: {fileID: 1149788710}
   peopleHelpedText: {fileID: 983053282}
   accuracyText: {fileID: 912717248}
-  profilePicture: {fileID: 0}
+  profilePicture: {fileID: 1277945301}
 --- !u!1 &387529325
 GameObject:
   m_ObjectHideFlags: 0
@@ -17311,7 +17311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1696626647
 RectTransform:
   m_ObjectHideFlags: 0

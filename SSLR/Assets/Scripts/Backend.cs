@@ -151,8 +151,14 @@ public class Backend : MonoBehaviour
             });
     }
 
-    private async void GetProfile(string url, Image targetRenderer)
+    public async void GetProfile(string url, Image targetRenderer)
     {
+        if (string.IsNullOrEmpty(url))
+        {
+            Debug.LogError("Profile picture URL is empty");
+            return;
+        }
+        
         try
         {
             Texture2D texture = await GetTextureFromURL(url);

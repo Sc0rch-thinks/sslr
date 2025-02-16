@@ -4,6 +4,8 @@ using Supabase.Gotrue;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+    
 public class MenuButtons : MonoBehaviour
 {
     /// <summary>
@@ -59,6 +61,8 @@ public class MenuButtons : MonoBehaviour
             daysPlayedText.text = user.daysPlayed.ToString();
             peopleHelpedText.text = totalPeopleHelped.ToString();
             accuracyText.text = $"{accuracy:F2}%";
+            
+            GetProfilePicture();
         }
         else
         {
@@ -73,5 +77,19 @@ public class MenuButtons : MonoBehaviour
     public void GetProfilePicture()
     {
         // profilePicture.sprite = Backend.instance.GetProfilePicture("https://fchobpauqasfebohuuam.supabase.co/storage/v1/object/public/Avatar//1739708594780-6156448458035283230_120.jpg");
+        
+        if(Backend.instance.User != null && !string.IsNullOrEmpty(Backend.instance.User.profilePictureUrl))
+        Backend.instance.GetProfile(Backend.instance.User.profilePictureUrl, profilePicture);
+    }
+
+    public void LoadScene(string scene)
+    {
+        LoadScene(scene);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quitting game");
     }
 }
