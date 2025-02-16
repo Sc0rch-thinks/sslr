@@ -5632,7 +5632,7 @@ MonoBehaviour:
   policeNpc: {fileID: 0}
   spawnPoints:
   - {fileID: 1126609777}
-  npcBufferTime: 5
+  npcBufferTime: 2
   Seats:
   - SeatObject: {fileID: 9804464}
     Available: 1
