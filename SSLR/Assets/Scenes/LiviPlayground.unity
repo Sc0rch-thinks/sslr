@@ -2433,7 +2433,7 @@ MonoBehaviour:
   welcomeButton: {fileID: 1341287577}
   questionPanel: {fileID: 1098954590}
   responsePanel: {fileID: 1409671558}
-  servicesPanel: {fileID: 0}
+  servicesPanel: {fileID: 1617137013}
   playerQuestionOneText: {fileID: 1887540466}
   playerQuestionTwoText: {fileID: 1284755197}
   playerQuestionThreeText: {fileID: 1918802128}
@@ -5642,7 +5642,6 @@ MonoBehaviour:
     Available: 1
   - SeatObject: {fileID: 14863571}
     Available: 1
-  playerFree: 0
   currentNpcs: []
   despawnPoints: []
   desk: {fileID: 1068269875}
@@ -5660,7 +5659,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   url: https://fchobpauqasfebohuuam.supabase.co
   anonKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjaG9icGF1cWFzZmVib2h1dWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczNTYyNTUsImV4cCI6MjA1MjkzMjI1NX0.LkwCnzjtf8CPLrm6OONkjyjxZW8jE05V_spbOEeAXEM
-  profilePicture: {fileID: 1277945301}
 --- !u!1 &553967502
 GameObject:
   m_ObjectHideFlags: 0
