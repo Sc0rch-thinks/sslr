@@ -266,104 +266,13 @@ GameObject:
   m_Component:
   - component: {fileID: 153157624}
   - component: {fileID: 153157623}
-  - component: {fileID: 153157622}
-  - component: {fileID: 153157621}
-  - component: {fileID: 153157620}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: backend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &153157620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153157619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 3
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.06666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: e3436bd4caa03b0448c2702401bde1e3, type: 2}
-  m_BuildHeightMesh: 1
---- !u!114 &153157621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153157619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6811c2cb7e863c47867526938ecf072, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dayEnded: 0
-  shiftStarted: 0
-  currentNPC: {fileID: 0}
-  currentNPCCorrectDepartment: 
---- !u!114 &153157622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153157619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df416a088d4174a48859fb9f90dc961a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maleNpcs:
-  - {fileID: 5194893303514968177, guid: d6fdb3aad202bcb4a94a506ea6001e6a, type: 3}
-  - {fileID: 9135896169125054515, guid: a798b00ea921e8343898ff52e5991eca, type: 3}
-  - {fileID: 925545406418636384, guid: 4f5050781a4e9ac44b1d74fbfafffc3c, type: 3}
-  - {fileID: 4072881850004209407, guid: f31543151b7dd3048af80efadcec2cc2, type: 3}
-  - {fileID: 2969917783020190086, guid: 26a21da08e645a44d98892caa04cf0b2, type: 3}
-  - {fileID: 2185267836938882255, guid: 9338effa4924428488a33d614a89383b, type: 3}
-  - {fileID: 479759021627617850, guid: a3071440bdd10854488c521655a110c4, type: 3}
-  femaleNpcs:
-  - {fileID: 2684341282212037920, guid: 6ca4cac9baa55204bbc12dd4c3df7407, type: 3}
-  - {fileID: 296760103864809898, guid: bf5026474447d534280e7f9ca1558858, type: 3}
-  - {fileID: 6223094720403375677, guid: cd53db996f4929048b1024fafa3c314a, type: 3}
-  policeNpc: {fileID: 0}
-  spawnPoints:
-  - {fileID: 0}
-  npcBufferTime: 2
-  Seats:
-  - SeatObject: {fileID: 0}
-    Available: 1
-  - SeatObject: {fileID: 0}
-    Available: 1
-  - SeatObject: {fileID: 0}
-    Available: 1
-  - SeatObject: {fileID: 0}
-    Available: 1
-  playerFree: 0
-  currentNpcs: []
-  despawnPoints: []
-  desk: {fileID: 0}
 --- !u!114 &153157623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,7 +287,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   url: https://fchobpauqasfebohuuam.supabase.co
   anonKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjaG9icGF1cWFzZmVib2h1dWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczNTYyNTUsImV4cCI6MjA1MjkzMjI1NX0.LkwCnzjtf8CPLrm6OONkjyjxZW8jE05V_spbOEeAXEM
-  profilePicture: {fileID: 0}
 --- !u!4 &153157624
 Transform:
   m_ObjectHideFlags: 0
