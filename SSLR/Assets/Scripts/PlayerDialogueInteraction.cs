@@ -1,6 +1,6 @@
 /*
  * Author: Livinia Poo
- * Date: 1/2/25
+ * Date: 16/2/25
  * Description: 
  * Dialogue Interaction (Player side)
  */
@@ -12,6 +12,9 @@ using UnityEngine;
 
 public class PlayerDialogueInteraction : MonoBehaviour
 {
+    /// <summary>
+    /// Dialogue instance
+    /// </summary>
     public static PlayerDialogueInteraction instance;
 
     ///<summary>
@@ -49,6 +52,9 @@ public class PlayerDialogueInteraction : MonoBehaviour
     public GameObject sgEnableServiceButton;
     public StampDocument currentDocument;
 
+    /// <summary>
+    /// Do not destroy on load, and resetting UI
+    /// </summary>
     void Awake()
     {
         if (instance == null)
@@ -64,6 +70,9 @@ public class PlayerDialogueInteraction : MonoBehaviour
         ResetChecklist();
     }
 
+    /// <summary>
+    /// Clear and disable dialogues
+    /// </summary>
     public void ResetDialogue()
     {
         playerDialogue.SetActive(false);
@@ -77,6 +86,9 @@ public class PlayerDialogueInteraction : MonoBehaviour
         question3Asked = false;
     }
 
+    /// <summary>
+    /// Clearing checklist
+    /// </summary>
     public void ResetChecklist()
     {
         welcomeTick.SetActive(false);
@@ -86,6 +98,12 @@ public class PlayerDialogueInteraction : MonoBehaviour
         takeDocumentsTick.SetActive(false);
     }
 
+    /// <summary>
+    /// Assigning UI text from npcData
+    /// </summary>
+    /// <param name="q1"></param>
+    /// <param name="q2"></param>
+    /// <param name="q3"></param>
     public void SetPlayerQuestions(string q1, string q2, string q3)
     {
         playerQuestionOneText.text = q1;
@@ -93,11 +111,18 @@ public class PlayerDialogueInteraction : MonoBehaviour
         playerQuestionThreeText.text = q3;
     }
 
+    /// <summary>
+    /// Assigning UI text from npcData
+    /// </summary>
+    /// <param name="response"></param>
     public void SetPlayerResposne(string response)
     {
         playerResponseText.text = response;
     }
 
+    /// <summary>
+    /// Logic after weloming NPC
+    /// </summary>
     public void WelcomePressed()
     {
         questionPanel.SetActive(true);
@@ -108,6 +133,10 @@ public class PlayerDialogueInteraction : MonoBehaviour
         GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().initialStatementText.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Logic for each question asked
+    /// </summary>
+    /// <param name="questionIndex"></param>
     public void OnQuestionSelected(int questionIndex)
     {
         if (questionIndex == 1)
@@ -144,6 +173,9 @@ public class PlayerDialogueInteraction : MonoBehaviour
         CheckAllQuestionsAsked();
     }
 
+    /// <summary>
+    /// Ticks checklist after asking questions at least once
+    /// </summary>
     void CheckAllQuestionsAsked()
     {
         if (question1Asked && question2Asked && question3Asked)
@@ -152,6 +184,9 @@ public class PlayerDialogueInteraction : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Logic for responding to NPC question
+    /// </summary>
     public void OnResponseSelected()
     {
         questionPanel.SetActive(true);
@@ -163,6 +198,11 @@ public class PlayerDialogueInteraction : MonoBehaviour
         GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcAnswerThreeText.gameObject.SetActive(false);
         GameManager.instance.currentNPC.GetComponent<NpcMovementRework>().npcClarifiedResponse.gameObject.SetActive(true);
     }
+    
+    /// <summary>
+    /// Sign paper correct signature and close services
+    /// </summary>
+    /// <param name="service"></param>
     public void OnServiceSelected(string service)
     {
         servicesPanel.SetActive(false);

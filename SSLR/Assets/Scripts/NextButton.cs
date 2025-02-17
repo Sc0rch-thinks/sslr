@@ -1,3 +1,10 @@
+/*
+ * Author: Lin Hengrui Ryan, Livinia Poo
+ * Date: 15/2/25
+ * Description:
+ * Calling and assigning new npc
+ */
+
 using UnityEngine;
 
 public class NextButton : MonoBehaviour

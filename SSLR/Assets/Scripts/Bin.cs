@@ -12,15 +12,15 @@ using UnityEngine;
 
 public class Bin : MonoBehaviour
 {
+    /// <summary>
+    /// Detects the paper object to destroy
+    /// </summary>
+    /// <param name="collision"></param>
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Paper"))
         {
             Destroy(collision.gameObject);
-        }
-        else
-        {
-            Debug.Log("you can't throw that!");
         }
     }
 }

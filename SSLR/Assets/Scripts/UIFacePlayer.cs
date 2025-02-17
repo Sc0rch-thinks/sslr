@@ -11,8 +11,14 @@ using UnityEngine;
 
 public class UIFacePlayer : MonoBehaviour
 {
+    /// <summary>
+    /// Referencinig player's cam
+    /// </summary>
     public Transform playerCam;
 
+    /// <summary>
+    /// Player's cam details
+    /// </summary>
     void Start()
     {
         if (Camera.main != null)
@@ -21,6 +27,9 @@ public class UIFacePlayer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// UI will always face player
+    /// </summary>
     void Update()
     {
         if (playerCam != null && Vector3.Distance(transform.position, playerCam.position) < 2)

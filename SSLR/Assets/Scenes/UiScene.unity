@@ -381,6 +381,7 @@ MonoBehaviour:
   profilePicture: {fileID: 1616624835}
   authPanel: {fileID: 1474701987}
   menuPanel: {fileID: 1087504102}
+  profilePanel: {fileID: 1626488804}
 --- !u!114 &158339685
 MonoBehaviour:
   m_ObjectHideFlags: 0

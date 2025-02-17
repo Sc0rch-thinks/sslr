@@ -1,7 +1,8 @@
 /*
 * Author: Shannon Goh and Livinia Poo
 * Date: 03/02/2025
-* Description: Pen Interactor Handle script
+* Description:
+* Pen Interactor Handle script
 */
 
 
@@ -12,8 +13,15 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class PenInteractor : MonoBehaviour
 {
+    /// <summary>
+    /// Document script reference
+    /// </summary>
     private StampDocument stampDocScript;
     
+    /// <summary>
+    /// Sign when pen touches area
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         if (PenSocketInteractor.isPickedUp && collision.gameObject.CompareTag("Paper"))

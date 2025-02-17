@@ -11,14 +11,30 @@ using UnityEngine;
 
 public class DayManager : MonoBehaviour
 {
+    /// <summary>
+    /// Whether the player has completed the shift
+    /// </summary>
     public bool doneAShift = false;
 
+    /// <summary>
+    /// Shiftmanager reference
+    /// </summary>
     [SerializeField] private GameObject shiftManager;
-
-    private Collider endDayTrigger;
-    private GameManager gm;
     private ShiftManager shiftManagerScript;
+    
+    /// <summary>
+    /// GameManager reference
+    /// </summary>
+    private GameManager gm;
 
+    /// <summary>
+    /// Box collider trigger
+    /// </summary>
+    private Collider endDayTrigger;
+
+    /// <summary>
+    /// Assigning references
+    /// </summary>
     void Awake()
     {
         gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -28,6 +44,9 @@ public class DayManager : MonoBehaviour
         endDayTrigger.enabled = false;
     }
 
+    /// <summary>
+    /// Check if end day collider activates
+    /// </summary>
     void Update()
     {
         if (doneAShift && !endDayTrigger.enabled)
@@ -40,13 +59,17 @@ public class DayManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// End the day
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Debug.Log("Day completed!");
-            Player.daysPlayed += 1;
-            Debug.Log(Player.daysPlayed);
+            Backend.instance.User.daysPlayed += 1;
+            Debug.Log(Backend.instance.User.daysPlayed);
             shiftManagerScript.AllowShiftStart();
             Debug.Log("You can start another shift!");
 

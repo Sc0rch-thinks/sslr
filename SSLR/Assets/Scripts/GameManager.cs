@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public bool shiftStarted;
 
     /// <summary>
-    /// NPC in front of desk
+    /// NPC in front of desk and answer
     /// </summary>
     public GameObject currentNPC;
     public string currentNPCCorrectDepartment;

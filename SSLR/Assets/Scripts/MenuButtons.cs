@@ -1,3 +1,10 @@
+/*
+ * Author: Livinia Poo
+ * Date: 15/2/25
+ * Description: 
+ * Main Menu scene button interactions
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using Supabase.Gotrue;
@@ -53,6 +60,10 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update profile data based on logged in user
+    /// </summary>
+    /// <param name="user"></param>
     public void UpdateProfileUI(Users user)
     {
         if (user != null)
@@ -75,24 +86,35 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calling backend to log player out
+    /// </summary>
     public void Logout()
     {
         Backend.instance.SignOut();
     }
 
+    /// <summary>
+    /// Calling backend to get user profile image
+    /// </summary>
     public void GetProfilePicture()
     {
-        // profilePicture.sprite = Backend.instance.GetProfilePicture("https://fchobpauqasfebohuuam.supabase.co/storage/v1/object/public/Avatar//1739708594780-6156448458035283230_120.jpg");
-
         if (Backend.instance.User != null && !string.IsNullOrEmpty(Backend.instance.User.profilePictureUrl))
             Backend.instance.GetProfile(Backend.instance.User.profilePictureUrl, profilePicture);
     }
 
+    /// <summary>
+    /// Load scene
+    /// </summary>
+    /// <param name="scene"></param>
     public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }
 
+    /// <summary>
+    /// Close game
+    /// </summary>
     public void QuitGame()
     {
         Application.Quit();

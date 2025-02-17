@@ -14949,7 +14949,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4857910982681371041, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: stampName
-      value: Stamp_DV
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5872023843001977328, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: m_SizeDelta.x
@@ -15176,7 +15176,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4857910982681371041, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: stampName
-      value: Stamp_Residential
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5872023843001977328, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: m_SizeDelta.x
@@ -39111,7 +39111,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4857910982681371041, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: stampName
-      value: Stamp_Disabilities
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5872023843001977328, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: m_SizeDelta.x
@@ -39135,7 +39135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7579783095933529078, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: m_Name
-      value: Stamp_Diabilities
+      value: Stamp_Disabilities
       objectReference: {fileID: 0}
     - target: {fileID: 7591921673328099837, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47424,7 +47424,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4857910982681371041, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: stampName
-      value: Stamp_Financial
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5872023843001977328, guid: bc7aab643b4d1ae4cadc4b6abba2b349, type: 3}
       propertyPath: m_SizeDelta.x

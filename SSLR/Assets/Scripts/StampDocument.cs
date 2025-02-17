@@ -1,3 +1,10 @@
+/*
+ * Author: Livinia Poo
+ * Date: 13/2/25
+ * Description: 
+ * Document Logic
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,15 +12,15 @@ using UnityEngine;
 
 public class StampDocument : MonoBehaviour
 {
-    [Header("Stamps")] [SerializeField] private GameObject financialStamp;
+    [Header("Stamps")] 
+    [SerializeField] private GameObject financialStamp;
     [SerializeField] private GameObject residentialStamp;
     [SerializeField] private GameObject dvStamp;
     [SerializeField] private GameObject disabilitiesStamp;
     [SerializeField] private GameObject signature;
 
-    [Header("Signatures")] [SerializeField]
-    private GameObject comcareSignature;
-
+    [Header("Signatures")] 
+    [SerializeField] private GameObject comcareSignature;
     [SerializeField] private GameObject fscSignature;
     [SerializeField] private GameObject peersSignature;
     [SerializeField] private GameObject transitionalShelterSignature;
@@ -21,14 +28,26 @@ public class StampDocument : MonoBehaviour
     [SerializeField] private GameObject childrenYoungHomeSignature;
     [SerializeField] private GameObject sgEnableSignature;
 
+    /// <summary>
+    /// Details to reference later on 
+    /// </summary>
     public bool isStamped;
     public bool isSigned;
     public string assignedDepartment;
     public string assignedService;
+    
+    /// <summary>
+    /// See finalised document detail
+    /// </summary>
+    /// <returns></returns>
     private string CheckFinalDepartment()
     {
         return $"{assignedDepartment}-{assignedService}";
     } 
+    
+    /// <summary>
+    /// Disabling all signatures and samps
+    /// </summary>
     void Start()
     {
         financialStamp.SetActive(false);
@@ -49,6 +68,9 @@ public class StampDocument : MonoBehaviour
         isStamped = false;
     }
 
+    /// <summary>
+    /// Financial stamp appear, assign department and declare stamped
+    /// </summary>
     public void StampFinancial()
     {
         financialStamp.SetActive(true);
@@ -56,6 +78,9 @@ public class StampDocument : MonoBehaviour
         assignedDepartment = "Financial";
     }
 
+    /// <summary>
+    /// Residential stamp appear, assign department and declare stamped
+    /// </summary>
     public void StampResidential()
     {
         residentialStamp.SetActive(true);
@@ -63,6 +88,9 @@ public class StampDocument : MonoBehaviour
         assignedDepartment = "Residential";
     }
 
+    /// <summary>
+    /// DV stamp appear, assign department and declare stamped
+    /// </summary>
     public void StampDV()
     {
         dvStamp.SetActive(true);
@@ -70,6 +98,9 @@ public class StampDocument : MonoBehaviour
         assignedDepartment = "Domestic Violence";
     }
 
+    /// <summary>
+    /// Disabilities stamp appear, assign department and declare stamped
+    /// </summary>
     public void StampDisabilities()
     {
         disabilitiesStamp.SetActive(true);
@@ -77,6 +108,9 @@ public class StampDocument : MonoBehaviour
         assignedDepartment = "Disabilities";
     }
 
+    /// <summary>
+    /// Respectivee signature appear, assign servoce and declare signed
+    /// </summary>
     public void Sign(string service)
     {
         switch (service)
@@ -128,6 +162,10 @@ public class StampDocument : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Declares this is current document
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pen"))

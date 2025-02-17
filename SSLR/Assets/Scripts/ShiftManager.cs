@@ -11,14 +11,31 @@ using UnityEngine;
 
 public class ShiftManager : MonoBehaviour
 {
+    /// <summary>
+    /// Shift details
+    /// </summary>
     [SerializeField] private float shiftDuration;
     private float remainingTime;
     [SerializeField] private GameObject npcSpawnArea;
 
+    /// <summary>
+    /// Shift box collider trigger
+    /// </summary>
     private Collider shiftTrigger;
+    
+    /// <summary>
+    /// Gamemanager reference 
+    /// </summary>
     private GameManager gm;
+    
+    /// <summary>
+    /// Day manager reference
+    /// </summary>
     private DayManager dayManager;
 
+    /// <summary>
+    /// Assigning variables and references
+    /// </summary>
     void Awake()
     {
         gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -30,6 +47,10 @@ public class ShiftManager : MonoBehaviour
         shiftTrigger = GetComponent<Collider>();
     }
 
+    /// <summary>
+    /// Start shift on trigger
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !gm.shiftStarted)
@@ -43,6 +64,10 @@ public class ShiftManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Timer to count down shift end
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StartWorkShift()
     {
         while (remainingTime > 0)
@@ -61,6 +86,9 @@ public class ShiftManager : MonoBehaviour
         EndShift();
     }
 
+    /// <summary>
+    /// Stop all shift-related logic
+    /// </summary>
     void EndShift()
     {
         Debug.Log("Shift ended!");
@@ -72,6 +100,9 @@ public class ShiftManager : MonoBehaviour
         NpcManager.instance.EndDay();
     }
 
+    /// <summary>
+    /// Start next day shift
+    /// </summary>
     public void AllowShiftStart()
     {
         shiftTrigger.enabled = true;

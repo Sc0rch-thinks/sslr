@@ -48,9 +48,11 @@ public class NpcManager : MonoBehaviour
     /// </summary>
     [SerializeField] private float npcBufferTime;
 
+    /// <summary>
+    /// List of seats for NPCs in scene
+    /// </summary>
     public Seat[] Seats;
-
-
+    
     /// <summary>
     /// collection of all exiting npcs
     /// </summary>

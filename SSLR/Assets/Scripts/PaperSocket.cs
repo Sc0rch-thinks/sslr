@@ -2,7 +2,7 @@
  * Author: Livinia Poo
  * Date: 1/2/25
  * Description: 
- * Paper Handling Interaction
+ * Paper Socket Logic
  */
 
 using System.Collections;
@@ -13,26 +13,42 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class PaperSocket : MonoBehaviour
 {
+    /// <summary>
+    /// Variables
+    /// </summary>
     [SerializeField] private string socketName;
     XRSocketInteractor interactor;
 
+    /// <summary>
+    /// Assigning variables
+    /// </summary>
     void Awake()
     {
         interactor = GetComponent<XRSocketInteractor>();
     }
     
+    /// <summary>
+    /// Adding listeners
+    /// </summary>
     void OnEnable()
     {
         interactor.selectEntered.AddListener(OnPaperAttached);
         interactor.selectExited.AddListener(OnPaperDetached);
     }
     
+    /// <summary>
+    /// Removing listeners
+    /// </summary>
     void OnDisable()
     {
         interactor.selectEntered.RemoveListener(OnPaperAttached);
         interactor.selectExited.RemoveListener(OnPaperDetached);
     }
 
+    /// <summary>
+    /// Attached logic
+    /// </summary>
+    /// <param name="args"></param>
     private void OnPaperAttached(SelectEnterEventArgs args)
     {
         GameObject paperObject = args.interactableObject.transform.gameObject;
@@ -62,6 +78,10 @@ public class PaperSocket : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Removed logic
+    /// </summary>
+    /// <param name="args"></param>
     private void OnPaperDetached(SelectExitEventArgs args)
     {
         if (socketName == "Paper Socket_NPC")

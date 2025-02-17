@@ -12,16 +12,24 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     /// <summary>
-    /// References and variables
+    /// Gamemanager reference
     /// </summary>
     private GameManager gm;
     
+    /// <summary>
+    /// Door pivots variables
+    /// </summary>
     [SerializeField] private GameObject doorLeft;
     [SerializeField] private GameObject doorRight;
+    
     /// <summary>
     /// a value to control delay the door closing
     /// </summary>
     public float doorCloseDelay = 0.75f;
+    
+    /// <summary>
+    /// Whether door is opened
+    /// </summary>
     private bool doorOpened = false;
 
     /// <summary>

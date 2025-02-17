@@ -1,3 +1,11 @@
+/*
+ * Author: Yeo Sai Puay and Livinia Poo
+ * Date: 3/2/25
+ * Description: 
+ * Stamp Logic
+ */
+
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,15 +13,28 @@ using UnityEngine;
 
 public class StampInteractor : MonoBehaviour
 {
+    /// <summary>
+    /// Name of the stam[
+    /// </summary>
     public string stampName;
 
+    /// <summary>
+    /// StampDoc reference
+    /// </summary>
     private StampDocument stampDocScript;
 
+    /// <summary>
+    /// Assigning name of stamp
+    /// </summary>
     void Awake()
     {
         stampName = gameObject.name;
     }
     
+    /// <summary>
+    /// Stamping correct department on collision
+    /// </summary>
+    /// <param name="collision"></param>
    private void OnCollisionEnter(Collision collision)
    {
        if (StampSocketInteractor.isHeld && collision.gameObject.CompareTag("Paper"))

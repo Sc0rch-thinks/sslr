@@ -5,7 +5,6 @@
  * Customer walking handling using NavMesh
  */
 
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,10 +17,16 @@ public class NpcMovementRework : MonoBehaviour
     /// </summary>
     public NavMeshAgent agent;
 
+    /// <summary>
+    /// Animation assigning
+    /// </summary>
     public Animator animator;
     private static readonly int IsSitting = Animator.StringToHash("isSitting");
     private static readonly int Speed = Animator.StringToHash("Speed");
 
+    /// <summary>
+    /// NPC's dialogue variables
+    /// </summary>
     public TextMeshProUGUI npcWelcomeText;
     public TextMeshProUGUI initialStatementText;
     public TextMeshProUGUI npcAnswerOneText;
@@ -32,9 +37,19 @@ public class NpcMovementRework : MonoBehaviour
     [SerializeField] private GameObject npcSpeechBubble;
     [SerializeField] private GameObject npcAnswerPanel;
 
+    /// <summary>
+    /// NPC Data referemce
+    /// </summary>
     public NpcData npcData;
+    
+    /// <summary>
+    /// Variable to store service
+    /// </summary>
     public string correctService;
 
+    /// <summary>
+    /// Check if NPC should be sitting or standing
+    /// </summary>
     public void Update()
     {
         if (agent.velocity.magnitude > 0.1)
@@ -48,6 +63,9 @@ public class NpcMovementRework : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Assigning references, NPC movement
+    /// </summary>
     public void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
@@ -59,11 +77,18 @@ public class NpcMovementRework : MonoBehaviour
         StartCoroutine(SitDown());
     }
 
+    /// <summary>
+    /// Call coroutine to call client
+    /// </summary>
     public void Called()
     {
         StartCoroutine(CustomerCalled());
     }
 
+    /// <summary>
+    /// Coroutine to get NPC to coe to table
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator CustomerCalled()
     {
         var pos = NpcManager.instance.desk;
@@ -99,6 +124,10 @@ public class NpcMovementRework : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// If in front of seat, NPC sits
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator SitDown()
     {
         var i = Random.Range(0, NpcManager.instance.Seats.Length);
@@ -132,6 +161,10 @@ public class NpcMovementRework : MonoBehaviour
     }
     
 
+    /// <summary>
+    /// Despawning NPCs
+    /// </summary>
+    /// <param name="endDay"></param>
     public void Despawn(bool endDay = false)
     {
         if (endDay)
@@ -146,6 +179,11 @@ public class NpcMovementRework : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Only despawn under certain condition
+    /// </summary>
+    /// <param name="destination"></param>
+    /// <returns></returns>
     private IEnumerator DespawnWhenReached(Transform destination)
     {
         agent.SetDestination(destination.position);
@@ -164,6 +202,9 @@ public class NpcMovementRework : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Assign UI text based on NPC Data
+    /// </summary>
     public void LoadNPCDialogue()
     {
         if (GameManager.instance.currentNPC != this.gameObject)

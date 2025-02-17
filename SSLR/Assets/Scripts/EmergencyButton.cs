@@ -1,3 +1,10 @@
+/*
+ * Author:Lin Hengrui Ryan
+ * Date: 10/2/25
+ * Description:
+ * Emergency button function
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
