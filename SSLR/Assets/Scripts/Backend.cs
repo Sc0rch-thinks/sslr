@@ -87,6 +87,12 @@ public class Backend : MonoBehaviour
         User = null;
         Session = null;
         await Client.Auth.SignOut();
+        
+        menuButtons.authPanel.SetActive(true);
+        menuButtons.profilePanel.SetActive(false);
+        
+        menuButtons.loginEmailInput.text = "";
+        menuButtons.loginPasswordInput.text = "";
     }
 
     /// <summary>

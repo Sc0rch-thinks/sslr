@@ -12,7 +12,6 @@ public class MenuButtons : MonoBehaviour
     /// Assigning Variables
     /// </summary>
     public TMP_InputField loginEmailInput;
-
     public TMP_InputField loginPasswordInput;
 
     public TextMeshProUGUI usernameText;
@@ -24,6 +23,7 @@ public class MenuButtons : MonoBehaviour
 
     public GameObject authPanel;
     public GameObject menuPanel;
+    public GameObject profilePanel;
 
     /// <summary>
     /// Calling backend to log player in
