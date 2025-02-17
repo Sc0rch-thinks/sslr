@@ -1,3 +1,10 @@
+/*
+ * Author:Lin Hengrui Ryan, Livinia Poo
+ * Date: 20/1/25
+ * Description:
+ * backend to talk to supabase and firebase
+ */
+
 using System.Threading.Tasks;
 using UnityEngine;
 using Supabase;
@@ -11,16 +18,39 @@ using UnityEngine.UI;
 
 public class Backend : MonoBehaviour
 {
+    /// <summary>
+    /// singleton instance
+    /// </summary>
     public static Backend instance;
 
+    /// <summary>
+    /// url to supabase
+    /// </summary>
     [SerializeField] private string url;
+
+    /// <summary>
+    /// supabase api anon key
+    /// </summary>
     [SerializeField] private string anonKey;
+
+    /// <summary>
+    /// supabase client
+    /// </summary>
     public Client Client;
 
+    /// <summary>
+    /// supabase auth session
+    /// </summary>
     public Session Session;
+
+    /// <summary>
+    /// user data
+    /// </summary>
     public Users User;
 
-    public Image profilePicture;
+    /// <summary>
+    /// setting up supabase client
+    /// </summary>
     private async void Start()
     {
         var options = new SupabaseOptions
@@ -32,6 +62,7 @@ public class Backend : MonoBehaviour
         Client = new Supabase.Client(url, anonKey, options);
         await Client.InitializeAsync().ContinueWith(task =>
         {
+            // Check if the task is successful
             if (!task.IsCompletedSuccessfully)
             {
                 Debug.LogError(task.Exception);
@@ -41,9 +72,11 @@ public class Backend : MonoBehaviour
                 Debug.Log("Supabase Initialized");
             }
         });
-        
     }
 
+    /// <summary>
+    /// signing out of supabase auth
+    /// </summary>
     public async void SignOut()
     {
         User = null;
@@ -51,6 +84,16 @@ public class Backend : MonoBehaviour
         await Client.Auth.SignOut();
     }
 
+    /// <summary>
+    /// sending user data to supabase
+    /// </summary>
+    /// <param name="uid">the user id of the current player</param>
+    /// <param name="profilePictureUrl">the url for the profile picture</param>
+    /// <param name="score">total score</param>
+    /// <param name="displayName">name of this player</param>
+    /// <param name="daysPlayed">the number of days that this player has gone through</param>
+    /// <param name="customersHelpedCorrectly"></param>
+    /// <param name="customersHelpedWrongly"></param>
     public async void SendData(string uid, string profilePictureUrl, int score, string displayName, int daysPlayed,
         int customersHelpedCorrectly,
         int customersHelpedWrongly)
@@ -65,6 +108,7 @@ public class Backend : MonoBehaviour
             customersHelpedCorrectly = customersHelpedCorrectly,
             customersHelpedWrongly = customersHelpedWrongly,
         };
+        // Send the data to the database
         await Client.From<Users>().OnConflict(x => x.uid)
             .Upsert(user).ContinueWith(SendTask =>
             {
@@ -79,7 +123,11 @@ public class Backend : MonoBehaviour
             });
     }
 
-
+    /// <summary>
+    /// sign in to supabase auth
+    /// </summary>
+    /// <param name="email"></param>
+    /// <param name="password"></param>
     public async void SignIn(string email, string password)
     {
         Session = await Client.Auth.SignIn(email, password);
@@ -87,8 +135,13 @@ public class Backend : MonoBehaviour
         GetData(Session.User.Id);
     }
 
+    /// <summary>
+    /// gettting user data from supabase
+    /// </summary>
+    /// <param name="uid">the uid for the player from auth</param>
     public async void GetData(string uid)
     {
+        // Get the data from the database
         var result = await Client.From<Users>().Where(x => x.uid == uid).Get();
         User = result.Model;
 
@@ -113,10 +166,15 @@ public class Backend : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// getting the npc data from firebase
+    /// </summary>
+    /// <param name="target">the npc script for desired npc</param>
     public void FirebaseGet(NpcMovementRework target)
     {
         NpcData data = new NpcData();
-        FirebaseDatabase.DefaultInstance.RootReference.Child("scenarios").Child(UnityEngine.Random.Range(1, 8).ToString())
+        FirebaseDatabase.DefaultInstance.RootReference.Child("scenarios")
+            .Child(UnityEngine.Random.Range(1, 8).ToString())
             .GetValueAsync()
             .ContinueWithOnMainThread(task =>
             {
@@ -151,6 +209,11 @@ public class Backend : MonoBehaviour
             });
     }
 
+    /// <summary>
+    /// getting the profile picture from the url
+    /// </summary>
+    /// <param name="url"></param>
+    /// <param name="targetRenderer">the targeted ui image</param>
     public async void GetProfile(string url, Image targetRenderer)
     {
         if (string.IsNullOrEmpty(url))
@@ -158,7 +221,7 @@ public class Backend : MonoBehaviour
             Debug.LogError("Profile picture URL is empty");
             return;
         }
-        
+
         try
         {
             Texture2D texture = await GetTextureFromURL(url);
@@ -187,6 +250,11 @@ public class Backend : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// getting the texture from the url
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
     private async Task<Texture2D> GetTextureFromURL(string url)
     {
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
@@ -210,6 +278,9 @@ public class Backend : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// assigning the singleton instance
+    /// </summary>
     private void Awake()
     {
         if (instance == null)

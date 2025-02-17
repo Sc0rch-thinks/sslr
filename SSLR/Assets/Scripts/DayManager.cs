@@ -1,7 +1,7 @@
 /*
  * Author: Livinia Poo
  * Date: 4/2/25
- * Description: 
+ * Description:
  * Managing start and end days
  */
 
@@ -27,7 +27,7 @@ public class DayManager : MonoBehaviour
 
         endDayTrigger.enabled = false;
     }
-    
+
     void Update()
     {
         if (doneAShift && !endDayTrigger.enabled)
@@ -39,19 +39,18 @@ public class DayManager : MonoBehaviour
             endDayTrigger.enabled = false;
         }
     }
-    
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        { 
-            Debug.Log("Day completed!"); 
+        {
+            Debug.Log("Day completed!");
             Player.daysPlayed += 1;
             Debug.Log(Player.daysPlayed);
             shiftManagerScript.AllowShiftStart();
             Debug.Log("You can start another shift!");
-            
+
             doneAShift = false;
         }
     }
-
 }

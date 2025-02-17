@@ -1,7 +1,7 @@
 /*
  * Author: Livinia Poo
  * Date: 4/2/25
- * Description: 
+ * Description:
  * Starting/Ending Shifts
  */
 
@@ -11,11 +11,9 @@ using UnityEngine;
 
 public class ShiftManager : MonoBehaviour
 {
-    [SerializeField]
-    private float shiftDuration;
+    [SerializeField] private float shiftDuration;
     private float remainingTime;
-    [SerializeField]
-    private GameObject npcSpawnArea;
+    [SerializeField] private GameObject npcSpawnArea;
 
     private Collider shiftTrigger;
     private GameManager gm;
@@ -25,10 +23,10 @@ public class ShiftManager : MonoBehaviour
     {
         gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
         dayManager = GameObject.Find("Day Manager").GetComponent<DayManager>();
-        
+
         gm.shiftStarted = false;
         remainingTime = shiftDuration;
-        
+
         shiftTrigger = GetComponent<Collider>();
     }
 
@@ -37,7 +35,7 @@ public class ShiftManager : MonoBehaviour
         if (other.CompareTag("Player") && !gm.shiftStarted)
         {
             Debug.Log("Shift started");
-            
+
             npcSpawnArea.SetActive(true);
             gm.shiftStarted = true;
             shiftTrigger.enabled = false;
@@ -56,16 +54,17 @@ public class ShiftManager : MonoBehaviour
                 Debug.Log("Too many mistakes! Shift ended!");
                 break;
             }
+
             yield return null;
         }
-        
+
         EndShift();
     }
 
     void EndShift()
     {
         Debug.Log("Shift ended!");
-        
+
         npcSpawnArea.SetActive(false);
         remainingTime = shiftDuration;
         gm.shiftStarted = false;

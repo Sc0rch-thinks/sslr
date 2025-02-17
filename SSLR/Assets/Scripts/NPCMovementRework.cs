@@ -1,5 +1,5 @@
 /*
- * Author: Lin Hengrui Ryan
+ * Author: Lin Hengrui Ryan, Livinia Poo
  * Date: 3/2/25
  * Description:
  * Customer walking handling using NavMesh

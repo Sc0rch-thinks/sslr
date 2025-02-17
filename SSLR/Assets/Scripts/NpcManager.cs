@@ -1,5 +1,5 @@
 /*
- * Author: Lin Hengrui Ryan and Livinia Poo
+ * Author: Lin Hengrui Ryan, Livinia Poo
  * Date: 1/2/25
  * Description:
  * Npc Manager
@@ -9,7 +9,6 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
-
 using UnityEngine.Serialization;
 
 public class NpcManager : MonoBehaviour
@@ -18,7 +17,7 @@ public class NpcManager : MonoBehaviour
     /// Assign Npc Manager instance
     /// </summary>
     public static NpcManager instance;
-    
+
     /// <summary>
     /// Assign GameManager script
     /// </summary>
@@ -43,24 +42,20 @@ public class NpcManager : MonoBehaviour
     /// list of all the spawn points
     /// </summary>
     public Transform[] spawnPoints;
-    
+
     /// <summary>
     /// float for time between npc spawns
     /// </summary>
     [SerializeField] private float npcBufferTime;
-    
+
     public Seat[] Seats;
-    
-    /// <summary>
-    /// a bool to check if the player is free
-    /// </summary>
-    public bool playerFree = false;
+
 
     /// <summary>
     /// collection of all exiting npcs
     /// </summary>
-    public List<GameObject> currentNpcs;    
-   
+    public List<GameObject> currentNpcs;
+
     /// <summary>
     /// a collection of positions for the npcs to despawn
     /// </summary>
@@ -70,12 +65,15 @@ public class NpcManager : MonoBehaviour
     /// flag to prevent multiple coroutines
     /// </summary>
     private bool isSpawning = false;
-    
+
     /// <summary>
     /// the position of the desk
     /// </summary>
     public Transform desk;
-    
+
+    /// <summary>
+    /// singleton pattern
+    /// </summary>
     void Awake()
     {
         if (instance == null)
@@ -87,10 +85,13 @@ public class NpcManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
-    
+
+    /// <summary>
+    /// called once per frame to check if the shift has started and if there are less than 4 npcs
+    /// </summary>
     private void Update()
     {
         if (gm.shiftStarted)
@@ -106,9 +107,12 @@ public class NpcManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// to spawn a new npc
+    /// </summary>
     public void SpawnNPC()
     {
-        var randomNpc=0;
+        var randomNpc = 0;
         bool isFemale = UnityEngine.Random.value > 0.5f;
         var spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
         if (isFemale)
@@ -119,23 +123,32 @@ public class NpcManager : MonoBehaviour
         {
             randomNpc = UnityEngine.Random.Range(0, maleNpcs.Length);
         }
-        var npc = Instantiate(isFemale ? femaleNpcs[randomNpc] : maleNpcs[randomNpc], spawnPoint.position, Quaternion.identity);
+
+        var npc = Instantiate(isFemale ? femaleNpcs[randomNpc] : maleNpcs[randomNpc], spawnPoint.position,
+            Quaternion.identity);
         currentNpcs.Add(npc);
         Debug.Log($"NPC Spawned! Total NPCS: {currentNpcs.Count}");
     }
 
+    /// <summary>
+    /// to spawn a new npc after a delay
+    /// </summary>
     IEnumerator SpawnNPCAfterWait()
     {
         isSpawning = true;
         yield return new WaitForSeconds(npcBufferTime);
-        
-        if(currentNpcs.Count < 4)
+
+        if (currentNpcs.Count < 4)
         {
             SpawnNPC();
         }
+
         isSpawning = false;
     }
-    
+
+    /// <summary>
+    /// to end the day and despawn all npcs
+    /// </summary>
     public void EndDay()
     {
         foreach (var npc in currentNpcs)
@@ -143,7 +156,10 @@ public class NpcManager : MonoBehaviour
             npc.GetComponent<NpcMovementRework>().Despawn(true);
         }
     }
-    
+
+    /// <summary>
+    /// a struct to store the seat object and availability
+    /// </summary>
     [Serializable]
     public struct Seat
     {
