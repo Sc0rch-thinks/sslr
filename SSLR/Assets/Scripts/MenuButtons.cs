@@ -22,6 +22,9 @@ public class MenuButtons : MonoBehaviour
 
     public Image profilePicture;
 
+    public GameObject authPanel;
+    public GameObject menuPanel;
+
     /// <summary>
     /// Calling backend to log player in
     /// </summary>

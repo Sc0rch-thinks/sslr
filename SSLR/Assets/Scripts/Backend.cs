@@ -49,6 +49,11 @@ public class Backend : MonoBehaviour
     public Users User;
 
     /// <summary>
+    /// menu buttons access
+    /// </summary>
+    public MenuButtons menuButtons;
+
+    /// <summary>
     /// setting up supabase client
     /// </summary>
     private async void Start()
@@ -133,6 +138,9 @@ public class Backend : MonoBehaviour
         Session = await Client.Auth.SignIn(email, password);
         Debug.Log(Session.User.Id);
         GetData(Session.User.Id);
+        
+        menuButtons.authPanel.SetActive(false);
+        menuButtons.menuPanel.SetActive(true);
     }
 
     /// <summary>

@@ -323,6 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   url: https://fchobpauqasfebohuuam.supabase.co
   anonKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjaG9icGF1cWFzZmVib2h1dWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczNTYyNTUsImV4cCI6MjA1MjkzMjI1NX0.LkwCnzjtf8CPLrm6OONkjyjxZW8jE05V_spbOEeAXEM
+  menuButtons: {fileID: 0}
 --- !u!4 &153157624
 Transform:
   m_ObjectHideFlags: 0
@@ -378,6 +379,8 @@ MonoBehaviour:
   peopleHelpedText: {fileID: 715913504}
   accuracyText: {fileID: 1532682198}
   profilePicture: {fileID: 1616624835}
+  authPanel: {fileID: 1474701987}
+  menuPanel: {fileID: 1087504102}
 --- !u!114 &158339685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,30 +1995,6 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1474701987}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1087504102}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &629920332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2976,7 +2955,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Game Scene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1178136179
@@ -4932,7 +4911,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2110910348}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 158339684}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2110910348
 MonoBehaviour:
   m_ObjectHideFlags: 0
