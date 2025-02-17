@@ -23,7 +23,7 @@ public class UIFacePlayer : MonoBehaviour
 
     void Update()
     {
-        if (playerCam != null)
+        if (playerCam != null && Vector3.Distance(transform.position, playerCam.position) < 2)
         {
             transform.LookAt(transform.position + playerCam.forward);
         }
