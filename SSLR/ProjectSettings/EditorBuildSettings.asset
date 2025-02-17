@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scene.unity
     guid: 9287921549948974ca7311ca78b6459b
   - enabled: 1
-    path: Assets/Scenes/Authentication.unity
+    path: Assets/Scenes/UiScene.unity
     guid: 8fe854ce20bb48b47a224673cb413ed9
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
