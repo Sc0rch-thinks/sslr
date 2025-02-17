@@ -8,7 +8,7 @@
 		<link rel="icon" type="image/x-icon" href="./img/SOS_Logo_WBG.png" />
 		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 	</head>
-	<body class="h-screen w-screen main-colour">
+	<body class="h-screen w-screen profile-background">
 		<header class="flex w-full h-20 secondary-colour fixed top-0 left-0 right-0">
 			<img src="./img/SOS_Logo_WBG.png" alt="product logo" class="p-1 ml-10" />
 			<nav class="w-full flex justify-around">
@@ -22,6 +22,11 @@
 			</nav>
 		</header>
 		<div class="h-20"></div>
+		<img
+			src="./img/SSLR_CopyrightLogo.png"
+			alt=""
+			class="h-[90vh] opacity-40 absolute top-[55%] left-[50%] translate-[-50%] select-none"
+		/>
 		<dialog
 			id="signInDialog"
 			class="section-colour px-5 w-[40vw] absolute top-[50%] left-[50%] translate-[-50%] backdrop:opacity-20 backdrop:bg-zinc800"
@@ -105,18 +110,17 @@
 				</button>
 			</form>
 		</dialog>
-		<section class="h-fit w-full py-10 px-[15vw]">
-			<img src="./img/SSLR_CopyrightLogo.png" alt="Logo Of SSLR" class="py-20 " />
-			<b hidden>Profile</b>
-			<img hidden src="" class="" alt="Profile picture" />
-			<h1 hidden><b>Name:</b></h1>
-			<h1 hidden><b>Score:</b></h1>
-			<h1 hidden><b>Days Played:</b></h1>
-			<h1 hidden><b>Customers Helped Correct:</b></h1>
-			<h1 hidden><b>Customers Helped Wrongly:</b></h1>
-			<h1 hidden><b>Accuracy:</b></h1>
+		<section class="h-fit w-full py-10 px-[15vw] " hidden id="profile">
+			<b>Profile</b>
+			<img src="" class="" alt="Profile picture" />
+			<h1><b>Name:</b></h1>
+			<h1><b>Score:</b></h1>
+			<h1><b>Days Played:</b></h1>
+			<h1><b>Customers Helped Correct:</b></h1>
+			<h1><b>Customers Helped Wrongly:</b></h1>
+			<h1><b>Accuracy:</b></h1>
 		</section>
 
-		<script  src="./profile.js"></script>
+		<script src="./profile.js"></script>
 	</body>
 </html>

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@utility profile-background{
+	background-color: #c6cdd9;
+	
+}
 
 
 @utility main-colour {
